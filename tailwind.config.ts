@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        'dark-purple' : '#150050',
+        'light-purple' : '#250C5F',
+        'yellow' : '#FFE377',
+      },
+      spacing: {
+        'projContainer': '71.25rem',
+      },
+      maxWidth: {
+        '1xl' : '40rem',
+      },
+      lineHeight: {
+        '12': '4rem',
+      },
+      maxHeight: {
+        '672': '42rem',
       },
     },
   },
