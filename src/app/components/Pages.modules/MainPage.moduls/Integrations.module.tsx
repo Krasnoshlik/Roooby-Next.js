@@ -1,14 +1,14 @@
 import Image from "next/image";
-import Logo1 from '../../images/IntegrationsImg/Logo1.png';
-import Logo2 from '../../images/IntegrationsImg/Logo2.png';
-import Logo3 from '../../images/IntegrationsImg/Logo3.png';
-import Logo4 from '../../images/IntegrationsImg/Logo4.png';
-import Logo5 from '../../images/IntegrationsImg/Logo5.png';
-import Logo6 from '../../images/IntegrationsImg/Logo6.png';
-import Logo7 from '../../images/IntegrationsImg/Logo7.png';
-import Logo8 from '../../images/IntegrationsImg/Logo8.png';
-import Logo9 from '../../images/IntegrationsImg/Logo9.png';
-import Logo10 from '../../images/IntegrationsImg/Logo10.png';
+import Logo1 from '../../../images/IntegrationsImg/Logo1.png';
+import Logo2 from '../../../images/IntegrationsImg/Logo2.png';
+import Logo3 from '../../../images/IntegrationsImg/Logo3.png';
+import Logo4 from '../../../images/IntegrationsImg/Logo4.png';
+import Logo5 from '../../../images/IntegrationsImg/Logo5.png';
+import Logo6 from '../../../images/IntegrationsImg/Logo6.png';
+import Logo7 from '../../../images/IntegrationsImg/Logo7.png';
+import Logo8 from '../../../images/IntegrationsImg/Logo8.png';
+import Logo9 from '../../../images/IntegrationsImg/Logo9.png';
+import Logo10 from '../../../images/IntegrationsImg/Logo10.png';
 
 
 export const Integrations = () => {

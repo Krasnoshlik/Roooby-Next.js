@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Oval1 from "../../images/Customers/Oval1.png";
-import Oval2 from "../../images/Customers/Oval2.png";
-import Oval3 from "../../images/Customers/Oval3.png";
+import Oval1 from "../../../images/Customers/Oval1.png";
+import Oval2 from "../../../images/Customers/Oval2.png";
+import Oval3 from "../../../images/Customers/Oval3.png";
 
 export const OurCustomers = () => {
   return (

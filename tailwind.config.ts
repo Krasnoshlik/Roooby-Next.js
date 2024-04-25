@@ -26,6 +26,7 @@ const config: Config = {
         '120': '7.5rem',
         '288': '18rem',
         '372': '23.25rem',
+        '11.5/12': '97%',
       },
       height: {
         '120' : '7.5rem',
@@ -35,7 +36,11 @@ const config: Config = {
         '11': '3.625rem',
       },
       maxHeight: {
-        '672': '42rem',
+        '672': '35rem',
+      },
+      backgroundImage: {
+        'bg-Green': "url('./images/PreFooter/PreFooterGreen.png')",
+        'bg-Purple': "url('./images/PreFooter/PreFooterPurple.png')",
       },
     },
   },

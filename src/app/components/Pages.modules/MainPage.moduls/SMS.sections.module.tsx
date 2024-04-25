@@ -1,7 +1,7 @@
-import Sales from '../../images/SMS sections/sales.png';
-import Marketing from '../../images/SMS sections/marketing.png';
-import Service from '../../images/SMS sections/service.png';
-import GreenArrow from '../../images/SMS sections/ic_done.svg';
+import Sales from '../../../images/SMS sections/sales.png';
+import Marketing from '../../../images/SMS sections/marketing.png';
+import Service from '../../../images/SMS sections/service.png';
+import GreenArrow from '../../../images/SMS sections/ic_done.svg';
 import Image from 'next/image';
 
 export const SMSsections = () => {

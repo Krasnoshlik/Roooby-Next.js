@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Image1 from '../../images/Whats new/Image1.png';
-import Image2 from '../../images/Whats new/Image2.png';
-import Oval1 from '../../images/Whats new/Oval.png';
-import Oval2 from '../../images/Whats new/Oval2.png';
+import Image1 from '../../../images/Whats new/Image1.png';
+import Image2 from '../../../images/Whats new/Image2.png';
+import Oval1 from '../../../images/Whats new/Oval.png';
+import Oval2 from '../../../images/Whats new/Oval2.png';
 
 export const WhatsNew = () => {
     return (

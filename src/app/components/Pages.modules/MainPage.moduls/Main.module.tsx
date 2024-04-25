@@ -1,11 +1,11 @@
 import { PurpleButton } from "@/app/components/PurpleButton";
 import Image from "next/image";
-import Dashboard from '../../images/Dashboard.png';
-import Google from '../../images/Trusted by/Google.svg';
-import Atlassian from '../../images/Trusted by/Atlassian.svg';
-import Cannon from '../../images/Trusted by/Canon.svg';
-import Walmart from '../../images/Trusted by/Walmart.svg';
-import Amazon from '../../images/Trusted by/Amazon.svg';
+import Dashboard from '../../../images/Dashboard.png';
+import Google from '../../../images/Trusted by/Google.svg';
+import Atlassian from '../../../images/Trusted by/Atlassian.svg';
+import Cannon from '../../../images/Trusted by/Canon.svg';
+import Walmart from '../../../images/Trusted by/Walmart.svg';
+import Amazon from '../../../images/Trusted by/Amazon.svg';
 
 export const Main = () => {
     return (
@@ -28,7 +28,7 @@ export const Main = () => {
                 </div>
             </div>
 
-            <div className=" absolute right-0 w-5/12 max-w-3xl h-96">
+            <div className=" absolute right-0 w-5/12 max-w-2xl">
                 <Image src={Dashboard} alt="Dashboard" className=" max-h-672"/>
             </div>
             </div>
