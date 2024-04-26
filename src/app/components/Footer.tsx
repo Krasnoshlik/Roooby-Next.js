@@ -1,11 +1,14 @@
+"use client"
 import Image from "next/image";
 import Logo from "../images/Roooby.svg";
 import Twitter from '../images/Footer/Twitter.png';
 import Facebook from '../images/Footer/Facebook.png';
 import Linkedin from '../images/Footer/Linkedin.png';
 import Lang from '../images/Footer/ic_language.png';
+import { useRouter } from 'next/navigation';
 
 export const Footer = () => {
+  const router = useRouter()
   return (
     <div className=" bg-white pt-28">
       <div className=" max-w-projContainer m-auto">
@@ -76,7 +79,7 @@ export const Footer = () => {
                     <p className=" text-sm">Cookies</p>
                 </div>
                 <div className=" flex gap-2">
-                    <Image src={Lang} alt="Lang"/>
+                    <Image src={Lang} alt="Lang"  onClick={() => router.push('/')}/>
                     <select name="" id="select" className=" font-medium appearance-none">
                         <option value="English">English</option>
                         <option value="Bulgarian">Bulgarian</option>

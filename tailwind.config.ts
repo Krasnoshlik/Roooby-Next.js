@@ -21,6 +21,7 @@ const config: Config = {
         '1xl' : '40rem',
         '1.5xl': '46.875rem',
         '360' : '22.5rem',
+        '555' : '34.688rem',
       },
       width: {
         '120': '7.5rem',

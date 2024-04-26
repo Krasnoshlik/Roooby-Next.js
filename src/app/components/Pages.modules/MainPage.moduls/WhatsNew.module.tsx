@@ -1,10 +1,13 @@
+"use client"
 import Image from "next/image";
-import Image1 from '../../../images/Whats new/Image1.png';
-import Image2 from '../../../images/Whats new/Image2.png';
 import Oval1 from '../../../images/Whats new/Oval.png';
 import Oval2 from '../../../images/Whats new/Oval2.png';
+import { News } from "@/app/database";
+import { useRouter } from 'next/navigation';
 
 export const WhatsNew = () => {
+    const router = useRouter();
+    const news = News;
     return (
         <div className=" bg-white">
             <div className=" w-projContainer m-auto flex flex-col gap-60 pt-32 pb-44">
@@ -12,28 +15,29 @@ export const WhatsNew = () => {
                 <div className=" flex flex-col gap-16">
                     <div className=" flex justify-between">
                         <h1 className=" text-6xl font-bold">What’s new at Roooby?</h1>
-                        <div className=" group/seeall flex items-end gap-1 hover:cursor-pointer">
+                        <div className=" group/seeall flex items-end gap-1 hover:cursor-pointer" onClick={() => router.push('/blog')}>
                             <p className=" font-medium text-lg group-hover/seeall:text-green-500">See all</p>
                             <p className=" text-green-500 font-bold mb-1 group-hover/seeall:translate-x-2 transition ease-in-out delay-150 ">{'>'}</p>
                         </div>
                     </div>
 
                     <div className=" flex gap-8">
-                        <div className=" flex flex-col gap-6">
-                            <p className=" text-sm text-gray-400 font-bold -mb-2">SERVICE</p>
+                        <div className=" flex flex-col gap-6 max-w-555">
+                            <p className=" text-sm text-gray-400 font-bold -mb-2">{news[11].type}</p>
                             <span className=" border w-full"></span>
-                            <Image src={Image1} alt="Image1"/>
-                            <h3 className=" font-bold text-3xl leading-10">How To Deliver a Successful <br /> Product Launch</h3>
-                            <p className=" font-medium"> 05 Sep 2024,<span className=" text-gray-500">by Joshua Nash</span></p>
+                            <img src={news[11].img} alt="Image1" className=" w-full"/>
+                            <h3 className=" font-bold text-3xl leading-10">{news[11].title}</h3>
+                            <p className=" font-medium"> {news[11].date}<span className=" text-gray-500">{news[11].autor}</span></p>
                         </div>
 
-                        <div className=" flex flex-col gap-6">
-                            <p className=" text-sm text-gray-400 font-bold -mb-2">SERVICE</p>
+                        <div className=" flex flex-col gap-6 max-w-555">
+                            <p className=" text-sm text-gray-400 font-bold -mb-2">{news[12].type}</p>
                             <span className=" border w-full"></span>
-                            <Image src={Image2} alt="Image1"/>
-                            <h3 className=" font-bold text-3xl leading-10">What Makes an Authentic Employee <br /> Profile, and Why Does It Matter?</h3>
-                            <p className=" font-medium">07 Sep 2023,<span className=" text-gray-500"> by Ivan Neshev</span></p>
+                            <img src={news[12].img} alt="Image1"/>
+                            <h3 className=" font-bold text-3xl leading-10">{news[12].title}</h3>
+                            <p className=" font-medium">{news[12].date}<span className=" text-gray-500"> {news[12].autor}</span></p>
                         </div>
+                        
                     </div>
                 </div>
                 {/* What's new end */}

@@ -1,13 +1,21 @@
-import MainPage from "./pages";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Main } from "./components/Pages.modules/MainPage.moduls/Main.module";
+import { PurpleSection } from "./components/Pages.modules/MainPage.moduls/PurpleSection.module";
+import { SMSsections } from "./components/Pages.modules/MainPage.moduls/SMS.sections.module";
+import { Integrations } from "./components/Pages.modules/MainPage.moduls/Integrations.module";
+import { WhatsNew } from "./components/Pages.modules/MainPage.moduls/WhatsNew.module";
+import { OurCustomers } from "./components/Pages.modules/MainPage.moduls/OurCustomers.module";
+import { PreFooter } from "./components/Pre-Footer";
 
-export default function Home() {
-  return (
-    <>
-      <Header/>
-      <MainPage/>
-      <Footer/>
-    </>
-  );
+export default function Home(){
+    return (
+        <>
+        <Main/>
+        <PurpleSection/>
+        <SMSsections/>
+        <Integrations/>
+        <WhatsNew/>
+        <OurCustomers/>
+        <PreFooter bg={'bg-bg-Green'}/>
+        </>
+    )
 }

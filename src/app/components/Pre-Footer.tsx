@@ -1,5 +1,6 @@
 export const PreFooter = ({ bg }) => {
   return (
+    <div className=" bg-white">
     <div className={`${bg}` + " h-96 bg-cover max-w-screen-2xl m-auto pt-28"}>
       <div className=" max-w-projContainer m-auto flex flex-row justify-between items-center text-white">
         <div className=" max-w-screen-md flex flex-col gap-6">
@@ -30,6 +31,7 @@ export const PreFooter = ({ bg }) => {
           <p className=" text-sm font-medium">Full access. No credit card required.</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
