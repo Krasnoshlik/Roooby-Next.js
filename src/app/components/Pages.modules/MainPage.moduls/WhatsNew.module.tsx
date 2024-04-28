@@ -4,6 +4,7 @@ import Oval1 from '../../../images/Whats new/Oval.png';
 import Oval2 from '../../../images/Whats new/Oval2.png';
 import { News } from "@/app/database";
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export const WhatsNew = () => {
     const router = useRouter();
@@ -26,7 +27,8 @@ export const WhatsNew = () => {
                             <p className=" text-sm text-gray-400 font-bold -mb-2">{news[11].type}</p>
                             <span className=" border w-full"></span>
                             <img src={news[11].img} alt="Image1" className=" w-full"/>
-                            <h3 className=" font-bold text-3xl leading-10">{news[11].title}</h3>
+                            <Link className=" font-bold text-3xl leading-10 hover:underline hover:cursor-pointer" href={{ pathname: '/new', query: news[11]}}>
+                                {news[11].title}</Link>
                             <p className=" font-medium"> {news[11].date}<span className=" text-gray-500">{news[11].autor}</span></p>
                         </div>
 
@@ -34,7 +36,8 @@ export const WhatsNew = () => {
                             <p className=" text-sm text-gray-400 font-bold -mb-2">{news[12].type}</p>
                             <span className=" border w-full"></span>
                             <img src={news[12].img} alt="Image1"/>
-                            <h3 className=" font-bold text-3xl leading-10">{news[12].title}</h3>
+                            <Link className=" font-bold text-3xl leading-10 hover:underline hover:cursor-pointer" href={{ pathname: '/new', query: news[12]}}>
+                                {news[12].title}</Link>
                             <p className=" font-medium">{news[12].date}<span className=" text-gray-500"> {news[12].autor}</span></p>
                         </div>
                         

@@ -80,7 +80,7 @@ export const Footer = () => {
                 </div>
                 <div className=" flex gap-2">
                     <Image src={Lang} alt="Lang"  onClick={() => router.push('/')}/>
-                    <select name="" id="select" className=" font-medium appearance-none">
+                    <select name="" id="select" className=" font-medium rounded">
                         <option value="English">English</option>
                         <option value="Bulgarian">Bulgarian</option>
                     </select>
