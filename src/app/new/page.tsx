@@ -9,7 +9,16 @@ import Chain from "../images/New/ic_insert_link.svg";
 import { News } from "../database";
 import Link from "next/link";
 
-export default function New({ searchParams }) {
+interface searchParamsType {
+  id: number,
+  type: string,
+  date: string,
+  img?: string,
+  autor: string,
+  title: string
+}
+
+export default function New({ searchParams }: {searchParams: searchParamsType}) {
   const news = News;
   return (
     <div>
