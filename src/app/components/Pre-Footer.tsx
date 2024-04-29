@@ -1,4 +1,4 @@
-export const PreFooter = ({ bg }) => {
+export const PreFooter = ({ bg }:{bg: string}) => {
   return (
     <div className=" bg-white">
     <div className={`${bg}` + " h-96 bg-cover max-w-screen-2xl m-auto pt-28 lg:pt-4 sm:pt-2 sm:flex sm:items-center"}>
