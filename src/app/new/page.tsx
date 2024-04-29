@@ -45,7 +45,7 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
         />
       </div>
       <div className=" bg-white pt-24 pb-44">
-        <div className=" max-w-screen-md m-auto lg:mx-5 sm:mx-3">
+        <div className=" max-w-750 m-auto lg:mx-5 sm:mx-3">
           <div className=" flex flex-col gap-6">
             <p className=" font-medium text-2xl">
               The Psychology of Short-Form Content: Why We Love Bite-Sized
