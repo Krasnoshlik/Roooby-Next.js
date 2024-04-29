@@ -10,8 +10,8 @@ import { useState, useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 const containerStyle = {
-  width: "458px",
-  height: "288px",
+  width: "360px",
+  height: "300px",
 };
 
 const center = {
@@ -31,16 +31,16 @@ export default function Contact() {
     googleMapsApiKey: "AIzaSyDNkb0RzRxM62eRfmcCzVN1GDp38_14YGU",
   });
 
-  const [map, setMap] = useState(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
 
-  const onLoad = useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
+  const onLoad = useCallback(function callback(map: google.maps.Map) {
+    const bounds = new window.google.maps.LatLngBounds(); 
     map.fitBounds(bounds);
 
     setMap(map);
   }, []);
 
-  const onUnmount = useCallback(function callback(map) {
+  const onUnmount = useCallback(function callback() { 
     setMap(null);
   }, []);
 
@@ -77,7 +77,6 @@ export default function Contact() {
                     zoom={11}
                     onLoad={onLoad}
                     onUnmount={onUnmount}
-                    mapContainerStyle={{width: "360px",height: "300px"}}
                   >
                     <Marker
                       position={{
