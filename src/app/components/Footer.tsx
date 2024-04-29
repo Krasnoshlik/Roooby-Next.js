@@ -11,9 +11,9 @@ export const Footer = () => {
   const router = useRouter()
   return (
     <div className=" bg-white pt-28">
-      <div className=" max-w-projContainer m-auto">
+      <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-3">
 
-        <div className=" flex gap-6 justify-between pb-20">
+        <div className=" flex gap-6 justify-between pb-20 sm:flex-col">
           <div className=" flex flex-col gap-6 max-w-64">
           <Image src={Logo} alt="Logo" className=" hover:cursor-pointer" />
           <p className=" text-sm leading-6 text-gray-700">
@@ -27,7 +27,7 @@ export const Footer = () => {
           </div>
           </div>
 
-          <div className=" flex gap-20">
+          <div className=" flex gap-20 flex-wrap">
 
           <div className=" flex flex-col gap-3">
             <h4 className=" font-bold">Company</h4>
@@ -71,7 +71,7 @@ export const Footer = () => {
         </div>
 
         <div className=" w-11.5/12 m-auto border-t-2 py-12">
-            <div className=" max-w-projContainer m-auto flex justify-between">
+            <div className=" max-w-projContainer m-auto flex justify-between sm:flex-col sm:gap-2">
                 <p className=" text-sm text-gray-500">© Copyright 2024</p>
                 <div className=" flex gap-9">
                     <p className=" text-sm">Terms of Service</p>

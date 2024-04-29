@@ -13,7 +13,7 @@ export default function New({ searchParams }) {
   const news = News;
   return (
     <div>
-      <div className=" flex flex-col gap-6 max-w-945 m-auto">
+      <div className=" flex flex-col gap-6 max-w-945 m-auto lg:mx-5 sm:mx-3">
         <div className=" max-w-555 m-auto">
           <p className=" text-sm text-gray-400 font-bold -mb-2">
             {searchParams.type}
@@ -36,7 +36,7 @@ export default function New({ searchParams }) {
         />
       </div>
       <div className=" bg-white pt-24 pb-44">
-        <div className=" max-w-screen-md m-auto">
+        <div className=" max-w-screen-md m-auto lg:mx-5 sm:mx-3">
           <div className=" flex flex-col gap-6">
             <p className=" font-medium text-2xl">
               The Psychology of Short-Form Content: Why We Love Bite-Sized
@@ -120,7 +120,7 @@ export default function New({ searchParams }) {
             </p>
           </div>
           <div className=" mt-4 mb-18 flex flex-col gap-4 py-6 border-y border-gray-600">
-            <div className=" flex justify-between">
+            <div className=" flex justify-between sm:flex-col">
               <div className=" flex gap-5">
                 <Image src={Avatar} alt="Avatar" />
                 <div>
@@ -139,12 +139,12 @@ export default function New({ searchParams }) {
         </div>
       </div>
 
-      <div className=" max-w-projContainer m-auto py-28">
+      <div className=" max-w-projContainer m-auto py-28 lg:mx-5 sm:mx-3">
         <h1 className=" font-bold text-6xl">More from this topic</h1>
 
-        <div className=" mt-20 grid grid-cols-3">
+        <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center">
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360">
+          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
             <p className=" text-sm text-gray-400 font-bold -mb-2">
               {news[9].type}
             </p>
@@ -164,7 +164,7 @@ export default function New({ searchParams }) {
           {/* New card end  */}
 
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360">
+          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
             <p className=" text-sm text-gray-400 font-bold -mb-2">
               {news[10].type}
             </p>
@@ -184,7 +184,7 @@ export default function New({ searchParams }) {
           {/* New card end  */}
 
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360">
+          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
             <p className=" text-sm text-gray-400 font-bold -mb-2">
               {news[11].type}
             </p>

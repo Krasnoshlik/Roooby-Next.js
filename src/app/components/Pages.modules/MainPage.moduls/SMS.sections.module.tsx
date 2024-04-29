@@ -7,11 +7,11 @@ import Image from 'next/image';
 export const SMSsections = () => {
     return (
         <div className=" bg-white py-28 ">
-            <div className=" max-w-projContainer m-auto">
+            <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-2">
 
                 <div className=" pt-12 border-t-2 border-gray-300">
 
-                    <div className=' flex flex-row justify-between items-center'>
+                    <div className=' flex flex-row justify-between items-center sm:flex-col sm:gap-2'>
                         <div className=' max-w-lg flex flex-col gap-6'>
                         <div className=' flex flex-col gap-4'>
                             <div className=' bg-yellow max-w-16 rounded font-bold text-gray-600 tracking-wider p-2 text-sm'>SALES</div>
@@ -44,7 +44,7 @@ export const SMSsections = () => {
 
                 <div className=" pt-12 border-t-2 border-gray-300 mt-28">
 
-                    <div className=' flex flex-row-reverse justify-between items-center'>
+                    <div className=' flex flex-row-reverse justify-between items-center sm:flex-col sm:gap-2'>
                         <div className=' max-w-lg flex flex-col gap-6'>
                         <div className=' flex flex-col gap-4'>
                             <div className=' bg-yellow max-w-28 rounded font-bold text-gray-600 tracking-wider p-2 text-sm text-center'>MARKETING</div>
@@ -77,7 +77,7 @@ export const SMSsections = () => {
 
                 <div className=" pt-12 border-t-2 border-gray-300 mt-28">
 
-                    <div className=' flex flex-row justify-between items-center'>
+                    <div className=' flex flex-row justify-between items-center sm:flex-col sm:gap-2'>
                         <div className=' max-w-lg flex flex-col gap-6'>
                         <div className=' flex flex-col gap-4'>
                             <div className=' bg-yellow max-w-20 rounded font-bold text-gray-600 tracking-wider p-2 text-sm'>SERVICE</div>

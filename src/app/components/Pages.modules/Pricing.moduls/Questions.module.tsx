@@ -21,11 +21,11 @@ export const Questions = () => {
 
   return (
     <div className=" bg-white">
-      <div className=" max-w-projContainer m-auto pt-28 pb-44 flex flex-col">
+      <div className=" max-w-projContainer m-auto pt-28 pb-44 flex flex-col lg:mx-5 sm:mx-3">
         <h2 className=" font-bold text-6xl leading-12">
           Frequently asked <br /> questions
         </h2>
-        <div className=" flex flex-col pt-10 w-10/12 self-end">
+        <div className=" flex flex-col pt-10 w-10/12 self-end sm:w-full">
 
           <div className=" border-t border-gray-300 pt-4 pb-4 flex flex-col">
             <Accordion className=" border-none">

@@ -3,8 +3,8 @@ import { PurpleButton } from "../../PurpleButton";
 
 export const ChoosePlan = () => {
   return (
-    <div className=" max-w-projContainer m-auto mt-16 mb-28">
-      <div className=" flex justify-between mb-24">
+    <div className=" max-w-projContainer m-auto mt-16 mb-28 lg:mx-5 sm:mx-3">
+      <div className=" flex justify-between mb-24 sm:flex-col">
         <h1 className=" font-bold text-6xl leading-12 max-w-2xl">
           Choose the right plan{" "}
           <span className=" text-gray-500"> for your business </span>
@@ -16,7 +16,7 @@ export const ChoosePlan = () => {
       </div>
 
       {/* Plan section start  */}
-      <div className=" flex gap-2">
+      <div className=" flex gap-2 lg:flex-wrap lg:justify-center sm:flex-col sm:justify-center sm:items-center">
         {/* Section start */}
         <div className=" max-w-96 bg-white rounded-xl p-8">
           <h4 className=" text-2xl font-bold">Starter</h4>
@@ -621,10 +621,10 @@ export const ChoosePlan = () => {
         {/* Section end */}
       </div>
       {/* Plan section end  */}
-      <div className=" max-w-projContainer m-auto border-t border-gray-300 mt-24 py-12 px-24">
-        <div className=" flex gap-11">
+      <div className=" max-w-projContainer m-auto border-t border-gray-300 mt-24 py-12 px-24 sm:px-0">
+        <div className=" flex gap-11 sm:flex-col sm:justify-center">
             <h4 className=" font-bold text-3xl">Need help choosing the right plan?</h4>
-            <div className=" flex gap-7 w-96">
+            <div className=" flex gap-7 w-96 sm:gap-4 sm:w-80">
                 <WhiteButton textInButton="Contact sales"/>
                 <PurpleButton textInButton="Compare plans"/>
             </div>

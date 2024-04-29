@@ -5,8 +5,8 @@ import Oval3 from "../../../images/Customers/Oval3.png";
 
 export const OurCustomers = () => {
   return (
-    <div className=" w-projContainer m-auto my-32">
-      <div className=" flex justify-between mb-16">
+    <div className=" max-w-projContainer m-auto my-32 lg:mx-5 sm:mx-3">
+      <div className=" flex justify-between mb-16 sm:flex-col">
         <h2 className=" text-5xl font-bold leading-11">
           We love our Customers <br /> and They love us too
         </h2>
@@ -20,7 +20,7 @@ export const OurCustomers = () => {
         </div>
       </div>
 
-      <div className=" flex gap-5">
+      <div className=" grid grid-cols-3 gap-5 lg:grid-cols-2 sm:flex sm:flex-col sm:items-center">
         {/* Commment start */}
         <div className=" flex flex-col gap-12 max-w-360 justify-between">
           <div className=" flex flex-col gap-4">

@@ -47,6 +47,11 @@ const config: Config = {
         'bg-Purple': "url('./images/PreFooter/PreFooterPurple.png')",
       },
     },
+    screens: {
+      'sm': {'min': '360px', 'max': '799px'},
+      'lg': {'min': '800px', 'max': '1199px'},
+      'xl': {'min': '1200px'},
+    },
   },
   plugins: [],
 };

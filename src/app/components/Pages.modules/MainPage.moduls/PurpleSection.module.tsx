@@ -1,22 +1,22 @@
 export const PurpleSection = () => {
   return (
     <div className=" bg-dark-purple py-32 text-white">
-      <div className=" max-w-projContainer m-auto flex flex-col gap">
-        <div className=" flex gap-5">
+      <div className=" max-w-projContainer m-auto flex flex-col gap lg:mx-5 sm:mx-2">
+        <div className=" flex gap-5 sm:flex-col">
           <h2 className=" text-5xl font-bold max-w-xl mb-3">
             Here's how Roooby can benefit your business
           </h2>
-          <p className=" max-w-lg self-end">
+          <p className=" max-w-lg self-end sm:self-start">
             Build more meaningful and lasting relationships — better <br />{" "}
             understand their needs, identify new opportunities to <br /> help,
             address any problems faster.
           </p>
         </div>
 
-        <div className=" mt-20 flex gap-2">
+        <div className=" mt-20 flex gap-2 sm:flex-col sm:items-center sm:flex-wrap">
             
 
-          <div className=" group/first w-1/3 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
+          <div className=" group/first w-1/3 sm:w-3/4 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
             <svg
               width="67"
               height="76"
@@ -79,7 +79,7 @@ export const PurpleSection = () => {
             </p>
           </div>
 
-          <div className=" group/second w-1/3 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
+          <div className=" group/second w-1/3 sm:w-3/4 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
             <svg
               width="76"
               height="60"
@@ -118,7 +118,7 @@ export const PurpleSection = () => {
             </p>
           </div>
 
-          <div className=" group/third w-1/3 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
+          <div className=" group/third w-1/3 sm:w-3/4 px-8 py-16 bg-light-purple rounded-xl flex flex-col justify-between transition ease-in-out delay-100 hover:-translate-y-6  hover:text-black hover:bg-yellow">
             <svg
               width="75"
               height="75"

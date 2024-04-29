@@ -51,18 +51,20 @@ export const MainBlog = () => {
   };
   return (
     <>
-      <div className=" max-w-projContainer m-auto">
-        <h1 className=" text-6xl leading-12 max-w-1xl font-bold my-24">
+      <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-3">
+        <h1 className=" text-6xl leading-12 max-w-1xl font-bold my-24 sm:text-5xl">
           News and insights{" "}
           <span className=" text-gray-500"> from our experts </span>
         </h1>
 
-        <div className=" max-w-xl flex gap-5">
+        <div >
           <Box>
             <AntTabs
               value={value}
               onChange={handleChange}
-              aria-label="ant example"
+              aria-label="scrollable force tabs example"
+              variant="scrollable"
+              allowScrollButtonsMobile
             >
               <AntTab
                 label="All Articles"
@@ -100,9 +102,9 @@ export const MainBlog = () => {
       </div>
 
       <div className=" bg-white">
-        <div className=" max-w-projContainer m-auto pt-28 pb-40">
+        <div className=" max-w-projContainer m-auto pt-28 pb-40 lg:mx-5 sm:mx-3 lg:flex lg:flex-col">
           {currentNews[0] !== undefined && (
-            <div className=" flex gap-5">
+            <div className=" flex gap-5 lg:flex-col sm:flex-col lg:self-center sm:self-center sm:justify-center sm:items-center">
               <div className=" flex flex-col justify-between py-4 border-y-2 max-w-555">
                 <div>
                   <p className=" text-sm text-gray-400 font-bold">
@@ -117,18 +119,16 @@ export const MainBlog = () => {
                 </div>
                 <p className=" font-medium">
                   {currentNews[0].date}
-                  <span className=" text-gray-500">
-                    {currentNews[0].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[0].autor}</span>
                 </p>
               </div>
               <img src={currentNews[0].img} alt="img" className=" w-555" />
             </div>
           )}
-          <div className="  my-28 grid grid-cols-3 grid-rows-2 gap-y-28">
+          <div className="  my-28 grid grid-cols-3 grid-rows-2 gap-y-28 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center">
             {/* New card start  */}
             {currentNews[1] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[1].type}
                 </p>
@@ -142,9 +142,7 @@ export const MainBlog = () => {
                 </Link>
                 <p className=" font-medium">
                   {currentNews[1].date}
-                  <span className=" text-gray-500">
-                    {currentNews[1].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[1].autor}</span>
                 </p>
               </div>
             )}
@@ -152,7 +150,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[2] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[2].type}
                 </p>
@@ -166,9 +164,7 @@ export const MainBlog = () => {
                 </Link>
                 <p className=" font-medium">
                   {currentNews[2].date}
-                  <span className=" text-gray-500">
-                    {currentNews[2].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[2].autor}</span>
                 </p>
               </div>
             )}
@@ -176,7 +172,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[3] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[3].type}
                 </p>
@@ -190,9 +186,7 @@ export const MainBlog = () => {
                 </Link>
                 <p className=" font-medium">
                   {currentNews[3].date}
-                  <span className=" text-gray-500">
-                    {currentNews[3].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[3].autor}</span>
                 </p>
               </div>
             )}
@@ -200,7 +194,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[4] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[4].type}
                 </p>
@@ -222,7 +216,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[5] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[5].type}
                 </p>
@@ -244,7 +238,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[6] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[6].type}
                 </p>
@@ -265,8 +259,8 @@ export const MainBlog = () => {
             {/* New card end  */}
           </div>
           {currentNews[7] !== undefined && (
-            <div className=" flex gap-8">
-              <div className=" flex flex-col gap-6 max-w-555">
+            <div className=" flex gap-8 sm:flex-col">
+              <div className=" flex flex-col gap-6 max-w-555 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[7].type}
                 </p>
@@ -283,7 +277,7 @@ export const MainBlog = () => {
                   <span className=" text-gray-500">{currentNews[7].autor}</span>
                 </p>
               </div>
-              <div className=" pt-9 flex flex-col gap-12">
+              <div className=" pt-9 flex flex-col gap-12 sm:place-self-center">
                 {/* New section start  */}
                 <div className=" border-t-2 w-full max-w-555 pt-4 flex flex-col gap-6">
                   <h3 className=" font-bold text-2xl leading-9">
@@ -339,10 +333,10 @@ export const MainBlog = () => {
             </div>
           )}
 
-          <div className=" mt-20 grid grid-cols-3">
+          <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1">
             {/* New card start  */}
             {currentNews[8] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[8].type}
                 </p>
@@ -356,9 +350,7 @@ export const MainBlog = () => {
                 </Link>
                 <p className=" font-medium">
                   {currentNews[8].date}
-                  <span className=" text-gray-500">
-                    {currentNews[8].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[8].autor}</span>
                 </p>
               </div>
             )}
@@ -366,7 +358,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[9] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[9].type}
                 </p>
@@ -380,9 +372,7 @@ export const MainBlog = () => {
                 </Link>
                 <p className=" font-medium">
                   {currentNews[9].date}
-                  <span className=" text-gray-500">
-                    {currentNews[9].autor}
-                  </span>
+                  <span className=" text-gray-500">{currentNews[9].autor}</span>
                 </p>
               </div>
             )}
@@ -390,7 +380,7 @@ export const MainBlog = () => {
 
             {/* New card start  */}
             {currentNews[10] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360">
+              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[10].type}
                 </p>

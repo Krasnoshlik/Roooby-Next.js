@@ -54,13 +54,13 @@ export default function Contact() {
 
   return (
     <>
-      <div className=" max-w-projContainer m-auto pt-16 pb-24">
+      <div className=" max-w-projContainer m-auto pt-16 pb-24 lg:mx-5 sm:mx-3">
         <h1 className=" text-6xl font-bold leading-12">
           Get in touch with <br /> our lovely team
         </h1>
-        <div className=" flex justify-betwee mt-8 gap-8">
+        <div className=" flex justify-between mt-8 gap-8 lg:flex-col lg:items-center sm:flex-col sm:items-start">
           {/* Left section start  */}
-          <div>
+          <div className=" sm:w-360">
             <div>
               <p className=" text-lg font-bold">Roooby Technologies</p>
               <p className=" text-lg font-medium text-gray-500">
@@ -77,6 +77,7 @@ export default function Contact() {
                     zoom={11}
                     onLoad={onLoad}
                     onUnmount={onUnmount}
+                    mapContainerStyle={{width: "360px",height: "300px"}}
                   >
                     <Marker
                       position={{
@@ -108,7 +109,7 @@ export default function Contact() {
           {/* Right section start  */}
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" w-555 flex flex-col  items-center self-center justify-between gap-5"
+            className=" w-555 sm:w-11/12 flex flex-col  items-center self-center justify-between gap-5"
           >
             {errors.FullName && <div className=" relative w-full"><label className=" absolute w-full text-red-600">This field is required</label></div>}
             <input
@@ -133,9 +134,9 @@ export default function Contact() {
         </div>
       </div>
       <div className=" bg-white">
-        <div className=" flex gap-24 py-24 max-w-projContainer m-auto">
+        <div className=" flex gap-24 py-24 max-w-projContainer m-auto lg:mx-5 sm:mx-3">
           <p className=" font-medium">Trusted by 1,000+ customers</p>
-          <div className=" flex gap-14">
+          <div className=" flex gap-14 lg:flex-wrap sm:flex-wrap">
             <Image src={Google} alt="Google" height={24} />
             <Image src={Atlassian} alt="Atlassian" height={17} />
             <Image src={Cannon} alt="Cannon" height={17} />

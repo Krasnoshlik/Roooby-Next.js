@@ -9,10 +9,10 @@ import Amazon from '../../../images/Trusted by/Amazon.svg';
 
 export const Main = () => {
     return (
-        <div className=" max-w-projContainer m-auto mt-16 flex flex-col gap-32 mb-20">
+        <div className=" max-w-projContainer m-auto mt-16 flex flex-col gap-32 mb-20 lg:mx-5">
 
-            <div className="flex gap-14">
-            <div className=" max-w-1xl flex flex-col gap-16">
+            <div className="flex gap-14 lg:flex-col sm:mx-3">
+            <div className=" max-w-1xl flex flex-col gap-16 z-10">
                 <div className=" flex flex-col gap-6">
                 <h1 className=" text-dark-purple text-6xl font-bold leading-12">Bringing companies and customers together, anywhere</h1>
                 <p className=" max-w-md leading-7">An awesome & powefull tools for your business, <br /> increase business revenue with enterprise-grade links <br /> built to acquire and engage cutomers.</p>
@@ -33,9 +33,9 @@ export const Main = () => {
             </div>
             </div>
 
-            <div className=" flex gap-24">
+            <div className=" flex gap-24 sm:mx-3 sm:gap-10 sm:flex-col">
                 <p className=" font-medium">Trusted by 1,000+ customers</p>
-                <div className=" flex gap-14">
+                <div className=" flex gap-14 flex-wrap sm:gap-7">
                     <Image src={Google} alt="Google" height={24}/>
                     <Image src={Atlassian} alt="Atlassian" height={17}/>
                     <Image src={Cannon} alt="Cannon" height={17}/>
