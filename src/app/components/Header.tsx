@@ -13,6 +13,7 @@ export const Header = () => {
   const [menu, setMenu] = useState(false);
 
   return (
+    <div className=" backdrop-blur-xl sticky top-0 z-50">
     <div className=" max-w-projContainer m-auto py-6 flex justify-between items-center lg:mx-5 sm:mx-3">
       <div className=" flex gap-24">
         <Image
@@ -113,6 +114,7 @@ export const Header = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
