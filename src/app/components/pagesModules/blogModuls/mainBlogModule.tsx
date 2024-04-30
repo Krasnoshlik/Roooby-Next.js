@@ -102,7 +102,7 @@ export const MainBlog = () => {
       </div>
 
       <div className=" bg-white">
-        <div className=" max-w-projContainer m-auto pt-28 pb-40 lg:mx-5 sm:mx-5 lg:flex lg:flex-col sm:pt-10 sm:pb-10">
+        <div className=" max-w-projContainer m-auto pt-28 pb-10 lg:mx-5 sm:mx-5 lg:flex lg:flex-col sm:pt-10 sm:pb-10">
           {currentNews[0] !== undefined && (
             <div className=" flex gap-5 lg:flex-col sm:flex-col lg:self-center sm:self-center sm:justify-center sm:items-center">
               <div className=" flex flex-col justify-between py-4 border-y-2 max-w-555">
@@ -125,7 +125,7 @@ export const MainBlog = () => {
               <img src={currentNews[0].img} alt="img" className=" w-555" />
             </div>
           )}
-          <div className="  my-28 grid grid-cols-3 grid-rows-2 gap-y-28 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:gap-y-10">
+          <div className=" mt-10 self-center flex flex-wrap gap-6 sm:justify-center sm:items-center sm:gap-y-10">
             {/* New card start  */}
             {currentNews[1] !== undefined && (
               <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
@@ -259,7 +259,7 @@ export const MainBlog = () => {
             {/* New card end  */}
           </div>
           {currentNews[7] !== undefined && (
-            <div className=" flex gap-8 sm:flex-col">
+            <div className=" flex gap-8 sm:flex-col mt-8">
               <div className=" flex flex-col gap-6 max-w-555 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
                   {currentNews[7].type}

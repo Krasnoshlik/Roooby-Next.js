@@ -22,13 +22,13 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
   const news = News;
   return (
     <div>
-      <div className=" flex flex-col gap-6 max-w-945 m-auto lg:mx-5 sm:mx-3">
+      <div className=" flex flex-col gap-6 max-w-945 m-auto lg:mx-5 sm:mx-5 mt-5">
         <div className=" max-w-555 m-auto">
           <p className=" text-sm text-gray-400 font-bold -mb-2">
             {searchParams.type}
           </p>
           <span className=" border w-full block my-4"></span>
-          <h3 className=" font-bold text-3xl leading-10">
+          <h3 className=" font-bold text-3xl leading-10 sm:text-2xl">
             {searchParams.title}
           </h3>
           <p className=" font-medium mt-4">
@@ -44,17 +44,17 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
           height={555}
         />
       </div>
-      <div className=" bg-white pt-24 pb-44">
-        <div className=" max-w-750 m-auto lg:mx-5 sm:mx-3">
+      <div className=" bg-white pt-24 pb-44 sm:pt-10 sm:pb-10">
+        <div className=" max-w-750 m-auto lg:mx-5 sm:mx-5">
           <div className=" flex flex-col gap-6">
-            <p className=" font-medium text-2xl">
+            <p className=" font-medium text-2xl sm:text-xl">
               The Psychology of Short-Form Content: Why We Love Bite-Sized
               Videos. The Psychology of Short-Form Content: Why We Love
               Bite-Sized Videos. The Psychology of Short-Form Content: Why We
               Love Bite-Sized Videos
             </p>
-            <h2 className=" font-bold text-5xl">What is a sales funnel?</h2>
-            <p className=" text-lg leading-7">
+            <h2 className=" font-bold text-5xl sm:text-2xl">What is a sales funnel?</h2>
+            <p className=" text-lg leading-7 sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -63,7 +63,7 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <p className=" text-lg leading-7">
+            <p className=" text-lg leading-7 sm:text-base">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae ab illo inventore veritatis et quasi architecto beatae vitae
@@ -91,18 +91,18 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
           </div>
           <Image src={ImageNew} alt="ImageNew" />
           <div className=" flex flex-col gap-5 my-8">
-            <h2 className=" font-bold text-5xl">What is a sales funnel?</h2>
-            <p className=" text-lg leading-7">
+            <h2 className=" font-bold text-5xl sm:text-2xl">What is a sales funnel?</h2>
+            <p className=" text-lg leading-7 sm:text-base">
               In order to fully answer the question “What is a sales funnel?”,
               we need to tackle the different steps of the funnel. While
               different organizations have their own ways of managing and naming
               the sales process and customer touchpoints, these are usually
               structured into three distinct stages.
             </p>
-            <h3 className="font-bold text-3xl">
+            <h3 className="font-bold text-3xl sm:text-2xl">
               1. Top of the sales funnel: Awareness and discovery
             </h3>
-            <p className=" text-lg leading-7">
+            <p className=" text-lg leading-7 sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -111,7 +111,7 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <p className=" text-lg leading-7">
+            <p className=" text-lg leading-7 sm:text-base">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae ab illo inventore veritatis et quasi architecto beatae vitae
@@ -148,10 +148,10 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
         </div>
       </div>
 
-      <div className=" max-w-projContainer m-auto py-28 lg:mx-5 sm:mx-3">
-        <h1 className=" font-bold text-6xl">More from this topic</h1>
+      <div className=" max-w-projContainer m-auto py-28 lg:mx-5 sm:mx-3 sm:py-10">
+        <h1 className=" font-bold text-6xl sm:text-2xl">More from this topic</h1>
 
-        <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center">
+        <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:mt-10">
           {/* New card start  */}
           <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
             <p className=" text-sm text-gray-400 font-bold -mb-2">

@@ -49,7 +49,7 @@ export const Main = () => {
                         </div>
                     </form>
                 </div>
-                <div className="absolute right-0 w-5/12 max-w-2xl sm:static sm:self-end sm:w-10/12">
+                <div className="absolute right-0 w-5/12 max-w-2xl sm:static sm:self-end sm:w-10/12 top-24">
                     <Image src={Dashboard} alt="Dashboard" className="max-h-672" />
                 </div>
             </div>

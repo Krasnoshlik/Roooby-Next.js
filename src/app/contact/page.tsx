@@ -5,99 +5,50 @@ import Atlassian from "../images/Trusted by/Atlassian.svg";
 import Cannon from "../images/Trusted by/Canon.svg";
 import Walmart from "../images/Trusted by/Walmart.svg";
 import Amazon from "../images/Trusted by/Amazon.svg";
-import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import { useState, useCallback } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
-const containerStyle = {
-  width: "360px",
-  height: "300px",
-};
+import Iframe from 'react-iframe'
 
-const center = {
-  lat: 42.162635434569474,
-  lng: 24.743433669101663,
-};
-
-type Inputs = {
-  FullName: string;
-  Email: string;
-  Message: string;
-};
 
 export default function Contact() {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyDNkb0RzRxM62eRfmcCzVN1GDp38_14YGU",
-  });
-
-  const [map, setMap] = useState<google.maps.Map | null>(null);
-
-  const onLoad = useCallback(function callback(map: google.maps.Map) {
-    const bounds = new window.google.maps.LatLngBounds(); 
-    map.fitBounds(bounds);
-
-    setMap(map);
-  }, []);
-
-  const onUnmount = useCallback(function callback() { 
-    setMap(null);
-  }, []);
-
   //   Hook Form start
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  } = useForm();
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <>
-      <div className=" max-w-projContainer m-auto pt-16 pb-24 lg:mx-5 sm:mx-3">
+      <div className=" max-w-projContainer m-auto pt-16 pb-24 lg:mx-5 sm:mx-5">
         <h1 className=" text-6xl font-bold leading-12">
           Get in touch with <br /> our lovely team
         </h1>
         <div className=" flex justify-between mt-8 gap-8 lg:flex-col lg:items-center sm:flex-col sm:items-start">
           {/* Left section start  */}
-          <div className=" sm:w-360">
-            <div>
+          <div className=" w-458 sm:w-full flex flex-col justify-center items-center">
+            <div className=" self-start">
               <p className=" text-lg font-bold">Roooby Technologies</p>
               <p className=" text-lg font-medium text-gray-500">
                 Plovdiv, Bulgaria, bul Vasil Levski 96
               </p>
             </div>
 
-            <div>
+            <div className=" w-full">
               <div className="w-full my-6">
-                {isLoaded ? (
-                  <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={11}
-                    onLoad={onLoad}
-                    onUnmount={onUnmount}
-                  >
-                    <Marker
-                      position={{
-                        lat: 42.162635434569474,
-                        lng: 24.743433669101663,
-                      }}
-                    />
-                    <></>
-                  </GoogleMap>
-                ) : (
-                  <></>
-                )}
+              <Iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19329.417986529206!2d24.73963591350058!3d42.16033960816897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd18de452a06b%3A0x838e93baa43989e5!2z0KHQtdCy0LXRgNC10L0sINGD0LsuIOKAntCS0LDRgdC40Lsg0JvQtdCy0YHQutC44oCcIDk2LCA0MDAzINCf0LvQvtCy0LTQuNCy!5e0!3m2!1sru!2sbg!4v1714476355891!5m2!1sru!2sbg"
+                  className=" w-full min-h-72" url={""} ></Iframe>
               </div>
             </div>
-            <div className=" flex justify-between">
-              <div className=" pl-5 border-l-2 border-gray-300">
+            <div className=" w-full flex justify-between">
+              <div className=" pl-5 border-l-2 border-gray-300 self-start">
                 <p className=" font-bold text-lg">General</p>
                 <p className=" font-medium text-lg">hello@me.com</p>
               </div>
 
-              <div className=" pl-5 border-l-2 border-gray-300">
+              <div className=" pl-5 border-l-2 border-gray-300 self-end">
                 <p className=" font-bold text-lg">Support</p>
                 <p className=" font-medium text-lg">support@me.com</p>
               </div>
@@ -107,33 +58,45 @@ export default function Contact() {
 
           {/* Right section start  */}
           <form
-            onSubmit={handleSubmit(onSubmit)}
-            className=" w-555 sm:w-11/12 flex flex-col  items-center self-center justify-between gap-5"
-          >
-            {errors.FullName && <div className=" relative w-full"><label className=" absolute w-full text-red-600">This field is required</label></div>}
-            <input
-              placeholder="Your Name"
-              {...register("FullName", { required: true })}
-            className=" p-5 w-full rounded-xl"/>
-            {/* include validation with required or other standard HTML validation rules */}
-            {errors.Email && <div className=" relative w-full"><label className=" absolute w-full text-red-600">This field is required</label></div>}
-            <input
-              placeholder="Your Email"
-              {...register("Email", { required: true })}
-            className=" p-5 w-full rounded-xl"/>
-            {/* errors will return when field validation fails  */}
-            {errors.Message && <div className=" relative w-full"><label className=" absolute w-full text-red-600">This field is required</label></div>}
-            <textarea
-              placeholder="Message"
-              {...register("Message", { required: true, min: 18, max: 200 })}
-            className=" p-5 w-full rounded-xl h-48"/>
-            <button title="Submit" onClick={handleSubmit(onSubmit)} className=" bg-green-400 text-white font-bold text-lg py-2 px-4 rounded self-start hover:cursor-pointer">Send message {'>'}</button>
-          </form>
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-555 sm:w-11/12 flex flex-col items-center self-center justify-between gap-5"
+    >
+      <input
+        placeholder="Your Name"
+        {...register("FullName", { required: "Please enter your name", minLength: { value: 6, message: "Name must be at least 6 characters long" } })}
+        className={`p-5 w-full rounded-xl ${errors.FullName ? "border-red-500" : ""}`}
+      />
+      {errors.FullName && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.FullName.message}</label>}
+
+      <input
+        placeholder="Your Email"
+        {...register("Email", {
+          required: "Please enter your email",
+          pattern: {
+            value: /^\S+@\S+$/i,
+            message: "Please enter a valid email address"
+          }
+        })}
+        className={`p-5 w-full rounded-xl ${errors.Email ? "border-red-500" : ""}`}
+      />
+      {errors.Email && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Email.message}</label>}
+
+      <textarea
+        placeholder="Message"
+        {...register("Message", { required: "Please enter a message", minLength: { value: 18, message: "Message must be at least 18 characters long" }, maxLength: { value: 200, message: "Message must not exceed 200 characters" } })}
+        className={`p-5 w-full rounded-xl h-48 ${errors.Message ? "border-red-500" : ""}`}
+      />
+      {errors.Message && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Message.message}</label>}
+
+      <button type="submit" className="bg-green-400 text-white font-bold text-lg py-2 px-4 rounded self-start hover:cursor-pointer">
+        Send message {'>'}
+      </button>
+    </form>
           {/* Right section end  */}
         </div>
       </div>
       <div className=" bg-white">
-        <div className=" flex gap-24 py-24 max-w-projContainer m-auto lg:mx-5 sm:mx-3">
+        <div className=" flex gap-24 py-24 max-w-projContainer m-auto lg:mx-5 sm:mx-5 sm:py-10">
           <p className=" font-medium">Trusted by 1,000+ customers</p>
           <div className=" flex gap-14 lg:flex-wrap sm:flex-wrap">
             <Image src={Google} alt="Google" height={24} />
