@@ -1,5 +1,5 @@
-import { WhiteButton } from "../../WhiteButton";
-import { PurpleButton } from "../../PurpleButton";
+import { WhiteButton } from "../../ui/WhiteButton";
+import { PurpleButton } from "../../ui/PurpleButton";
 
 export const ChoosePlan = () => {
   return (

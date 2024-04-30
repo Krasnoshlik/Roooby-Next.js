@@ -1,13 +1,7 @@
 "use client";
-import Image from "next/image";
-import Google from "../images/Trusted by/Google.svg";
-import Atlassian from "../images/Trusted by/Atlassian.svg";
-import Cannon from "../images/Trusted by/Canon.svg";
-import Walmart from "../images/Trusted by/Walmart.svg";
-import Amazon from "../images/Trusted by/Amazon.svg";
 import { useForm, SubmitHandler  } from "react-hook-form";
-
 import Iframe from 'react-iframe'
+import { TrustedByCust } from "../components/ui/trustedByCust";
 
 interface FormValues {
   FullName: string;
@@ -101,16 +95,9 @@ export default function Contact() {
         </div>
       </div>
       <div className=" bg-white">
-        <div className=" flex gap-24 py-24 max-w-projContainer m-auto lg:mx-5 sm:mx-5 sm:py-10">
-          <p className=" font-medium">Trusted by 1,000+ customers</p>
-          <div className=" flex gap-14 lg:flex-wrap sm:flex-wrap">
-            <Image src={Google} alt="Google" height={24} />
-            <Image src={Atlassian} alt="Atlassian" height={17} />
-            <Image src={Cannon} alt="Cannon" height={17} />
-            <Image src={Walmart} alt="Walmart" height={24} />
-            <Image src={Amazon} alt="Amazon" height={24} />
-          </div>
-        </div>
+      <div className=" py-20 mx-20">
+      <TrustedByCust/>
+      </div>
       </div>
     </>
   );

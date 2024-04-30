@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 import { News } from "../../../../../data/database";
 import Link from "next/link";
+import { MidNewsCard } from "../../ui/midNewsCard";
 
 const AntTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
@@ -128,133 +129,37 @@ export const MainBlog = () => {
           <div className=" mt-10 self-center flex flex-wrap gap-6 sm:justify-center sm:items-center sm:gap-y-10">
             {/* New card start  */}
             {currentNews[1] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[1].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[1].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[1] }}
-                >
-                  {currentNews[1].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[1].date}
-                  <span className=" text-gray-500">{currentNews[1].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[1]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[2] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[2].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[2].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[2] }}
-                >
-                  {currentNews[2].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[2].date}
-                  <span className=" text-gray-500">{currentNews[2].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[2]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[3] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[3].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[3].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[3] }}
-                >
-                  {currentNews[3].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[3].date}
-                  <span className=" text-gray-500">{currentNews[3].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[3]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[4] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[4].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[4].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[4] }}
-                >
-                  {currentNews[4].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[4].date}
-                  <span className=" text-gray-500">{currentNews[4].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[4]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[5] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[5].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[5].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[5] }}
-                >
-                  {currentNews[5].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[5].date}
-                  <span className=" text-gray-500">{currentNews[5].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[5]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[6] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[6].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[6].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[6] }}
-                >
-                  {currentNews[6].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[6].date}
-                  <span className=" text-gray-500">{currentNews[6].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[6]}/>
             )}
             {/* New card end  */}
           </div>
@@ -336,69 +241,19 @@ export const MainBlog = () => {
           <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1">
             {/* New card start  */}
             {currentNews[8] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[8].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[8].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[8] }}
-                >
-                  {currentNews[8].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[8].date}
-                  <span className=" text-gray-500">{currentNews[8].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[8]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[9] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[9].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[9].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[9] }}
-                >
-                  {currentNews[9].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[9].date}
-                  <span className=" text-gray-500">{currentNews[9].autor}</span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[9]}/>
             )}
             {/* New card end  */}
 
             {/* New card start  */}
             {currentNews[10] !== undefined && (
-              <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-                <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[10].type}
-                </p>
-                <span className=" border w-full"></span>
-                <img src={currentNews[10].img} alt="Image1" />
-                <Link
-                  className=" font-bold text-2xl leading-8 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[10] }}
-                >
-                  {currentNews[10].title}
-                </Link>
-                <p className=" font-medium">
-                  {currentNews[10].date}
-                  <span className=" text-gray-500">
-                    {currentNews[10].autor}
-                  </span>
-                </p>
-              </div>
+              <MidNewsCard item={currentNews[10]}/>
             )}
             {/* New card end  */}
           </div>

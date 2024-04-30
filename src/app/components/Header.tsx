@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Logo from "../images/Roooby.svg";
-import { WhiteButton } from "./WhiteButton";
-import { PurpleButton } from "./PurpleButton";
+import { WhiteButton } from "./ui/WhiteButton";
+import { PurpleButton } from "./ui/PurpleButton";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 

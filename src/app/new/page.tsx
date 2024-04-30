@@ -7,7 +7,7 @@ import Twitter from "../images/New/Twitter.svg";
 import In from "../images/New/Linkedin.svg";
 import Chain from "../images/New/ic_insert_link.svg";
 import { News } from "../../../data/database";
-import Link from "next/link";
+import { MidNewsCard } from "../components/ui/midNewsCard";
 
 interface searchParamsType {
   id: number,
@@ -153,63 +153,15 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
 
         <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:mt-10">
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-            <p className=" text-sm text-gray-400 font-bold -mb-2">
-              {news[9].type}
-            </p>
-            <span className=" border w-full"></span>
-            <img src={news[9].img} alt="Image1" />
-            <Link
-              className=" font-bold text-2xl leading-8 hover:underline hover:cursor-pointer"
-              href={{ pathname: "/new", query: news[9] }}
-            >
-              {news[9].title}
-            </Link>
-            <p className=" font-medium">
-              {news[9].date}
-              <span className=" text-gray-500"> {news[9].autor}</span>
-            </p>
-          </div>
+          <MidNewsCard item={news[9]}/>
           {/* New card end  */}
 
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-            <p className=" text-sm text-gray-400 font-bold -mb-2">
-              {news[10].type}
-            </p>
-            <span className=" border w-full"></span>
-            <img src={news[10].img} alt="Image1" />
-            <Link
-              className=" font-bold text-2xl leading-8 hover:underline hover:cursor-pointer"
-              href={{ pathname: "/new", query: news[10] }}
-            >
-              {news[10].title}
-            </Link>
-            <p className=" font-medium">
-              {news[10].date}
-              <span className=" text-gray-500"> {news[10].autor}</span>
-            </p>
-          </div>
+          <MidNewsCard item={news[10]}/>
           {/* New card end  */}
 
           {/* New card start  */}
-          <div className=" flex flex-col gap-4 max-w-360 sm:place-self-center">
-            <p className=" text-sm text-gray-400 font-bold -mb-2">
-              {news[11].type}
-            </p>
-            <span className=" border w-full"></span>
-            <img src={news[10].img} alt="Image1" />
-            <Link
-              className=" font-bold text-2xl leading-8 hover:underline hover:cursor-pointer"
-              href={{ pathname: "/new", query: news[11] }}
-            >
-              {news[11].title}
-            </Link>
-            <p className=" font-medium">
-              {news[11].date}
-              <span className=" text-gray-500"> {news[11].autor}</span>
-            </p>
-          </div>
+          <MidNewsCard item={news[11]}/>
           {/* New card end  */}
         </div>
       </div>
