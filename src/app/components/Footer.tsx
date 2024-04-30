@@ -15,7 +15,7 @@ export const Footer = () => {
   const router = useRouter();
   return (
     <div className=" bg-white pt-28 sm:pt-10">
-      <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-3">
+      <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-5">
         <div className=" flex gap-6 justify-between pb-20 sm:flex-col sm:pb-10">
           <div className=" flex flex-col gap-6 max-w-64">
             <Image src={Logo} alt="Logo" className=" hover:cursor-pointer" />
