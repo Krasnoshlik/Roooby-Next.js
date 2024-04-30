@@ -66,7 +66,7 @@ export default function Contact() {
         {...register("FullName", { required: "Please enter your name", minLength: { value: 6, message: "Name must be at least 6 characters long" } })}
         className={`p-5 w-full rounded-xl ${errors.FullName ? "border-red-500" : ""}`}
       />
-      {errors.FullName && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.FullName.message}</label>}
+      {errors.FullName && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.FullName?.message}</label>}
 
       <input
         placeholder="Your Email"
@@ -79,14 +79,14 @@ export default function Contact() {
         })}
         className={`p-5 w-full rounded-xl ${errors.Email ? "border-red-500" : ""}`}
       />
-      {errors.Email && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Email.message}</label>}
+      {errors.Email && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Email?.message}</label>}
 
       <textarea
         placeholder="Message"
         {...register("Message", { required: "Please enter a message", minLength: { value: 18, message: "Message must be at least 18 characters long" }, maxLength: { value: 200, message: "Message must not exceed 200 characters" } })}
         className={`p-5 w-full rounded-xl h-48 ${errors.Message ? "border-red-500" : ""}`}
       />
-      {errors.Message && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Message.message}</label>}
+      {errors.Message && <label className="text-red-600 w-full relative -top-5 left-1 h-0">{errors.Message?.message}</label>}
 
       <button type="submit" className="bg-green-400 text-white font-bold text-lg py-2 px-4 rounded self-start hover:cursor-pointer">
         Send message {'>'}

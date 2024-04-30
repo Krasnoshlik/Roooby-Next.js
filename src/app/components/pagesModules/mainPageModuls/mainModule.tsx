@@ -7,18 +7,18 @@ import Atlassian from '../../../images/Trusted by/Atlassian.svg';
 import Cannon from '../../../images/Trusted by/Canon.svg';
 import Walmart from '../../../images/Trusted by/Walmart.svg';
 import Amazon from '../../../images/Trusted by/Amazon.svg';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 export const Main = () => {
     const [email, setEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(true);
 
-    const handleChange = (e) => {
+    const handleChange = (e: { target: { value: SetStateAction<string>; checkValidity: () => boolean | ((prevState: boolean) => boolean); }; }) => {
         setEmail(e.target.value);
         setIsValidEmail(e.target.checkValidity());
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
     };
 
@@ -42,7 +42,7 @@ export const Main = () => {
                                     required
                                 />
                                 <div className="w-36 self-end">
-                                    <PurpleButton textInButton='Try for Free' type="submit" />
+                                    <PurpleButton textInButton='Try for Free' type='submit' />
                                 </div>
                             </div>
                             {!isValidEmail && <p className="text-red-500 text-sm ml-3 sm:text-xs">Please enter a valid email address.</p>}
