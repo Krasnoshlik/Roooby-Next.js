@@ -3,13 +3,13 @@ import { PurpleButton } from "../../PurpleButton";
 
 export const ChoosePlan = () => {
   return (
-    <div className=" max-w-projContainer m-auto mt-16 mb-28 lg:mx-5 sm:mx-3">
-      <div className=" flex justify-between mb-24 sm:flex-col">
-        <h1 className=" font-bold text-6xl leading-12 max-w-2xl">
+    <div className=" max-w-projContainer m-auto mt-16 mb-28 lg:mx-5 sm:mx-5 sm:mt-10 sm:mb-2">
+      <div className=" flex justify-between mb-24 sm:flex-col sm:mb-10 sm:gap-5">
+        <h1 className=" font-bold text-6xl leading-12 max-w-2xl sm:text-3xl">
           Choose the right plan{" "}
           <span className=" text-gray-500"> for your business </span>
         </h1>
-        <p className=" max-w-360 self-end text-lg leading-7">
+        <p className=" max-w-360 self-end text-lg leading-7 sm:text-base">
           Built with love for growing businesses. Check out the Roooby CRM
           pricing grid below. Switch between plans at any time.
         </p>
@@ -19,12 +19,12 @@ export const ChoosePlan = () => {
       <div className=" flex gap-2 lg:flex-wrap lg:justify-center sm:flex-col sm:justify-center sm:items-center">
         {/* Section start */}
         <div className=" max-w-96 bg-white rounded-xl p-8">
-          <h4 className=" text-2xl font-bold">Starter</h4>
-          <p className="max-w-80">
+          <h4 className=" text-2xl font-bold sm:text-xl">Starter</h4>
+          <p className="max-w-80 sm:text-sm">
             Get organized and set up simple sales processes lorem ipsum
           </p>
-          <div className=" flex gap-1 mt-3 mb-5">
-            <h2 className=" font-bold text-5xl leading-11">$8,90</h2>
+          <div className=" flex gap-1 mt-3 mb-5 ">
+            <h2 className=" font-bold text-5xl leading-11 sm:text-3xl">$8,90</h2>
             <p className=" font-bold text-gray-400 self-end">/month</p>
           </div>
           <WhiteButton textInButton="Try for Free" />
@@ -220,14 +220,14 @@ export const ChoosePlan = () => {
         {/* Section start */}
         <div className=" max-w-96 bg-white rounded-xl p-8">
           <div className=" flex gap-3 items-center">
-          <h4 className=" text-2xl font-bold">Professional</h4>
+          <h4 className=" text-2xl font-bold sm:text-xl">Professional</h4>
           <h5 className=" bg-green-100 p-1 text-xs text-green-500 font-bold rounded">RECOMMENDED</h5>
           </div>
-          <p className="max-w-80">
+          <p className="max-w-80 sm:text-sm">
           Everything you need to boost performance and revenue lorem ipsum
           </p>
           <div className=" flex gap-1 mt-3 mb-5">
-            <h2 className=" font-bold text-5xl leading-11">$29,90</h2>
+            <h2 className=" font-bold text-5xl leading-11 sm:text-3xl ">$29,90</h2>
             <p className=" font-bold text-gray-400 self-end">/month</p>
           </div>
           <WhiteButton textInButton="Try for Free" />
@@ -422,12 +422,12 @@ export const ChoosePlan = () => {
 
         {/* Section start */}
         <div className=" max-w-96 bg-white rounded-xl p-8">
-          <h4 className=" text-2xl font-bold">Enterprise</h4>
-          <p className="max-w-80">
+          <h4 className=" text-2xl font-bold sm:text-xl">Enterprise</h4>
+          <p className="max-w-80 sm:text-sm">
           Customize without limits and access unrivaled support lorem ipsum
           </p>
           <div className=" flex gap-1 mt-3 mb-5">
-            <h2 className=" font-bold text-5xl leading-11">$39,90</h2>
+            <h2 className=" font-bold text-5xl leading-11 sm:text-3xl">$39,90</h2>
             <p className=" font-bold text-gray-400 self-end">/month</p>
           </div>
           <WhiteButton textInButton="Try for Free" />
@@ -621,7 +621,7 @@ export const ChoosePlan = () => {
         {/* Section end */}
       </div>
       {/* Plan section end  */}
-      <div className=" max-w-projContainer m-auto border-t border-gray-300 mt-24 py-12 px-24 sm:px-0">
+      <div className=" max-w-projContainer m-auto border-t border-gray-300 mt-24 py-12 px-24 sm:mt-10 sm: sm:px-0">
         <div className=" flex gap-11 sm:flex-col sm:justify-center">
             <h4 className=" font-bold text-3xl">Need help choosing the right plan?</h4>
             <div className=" flex gap-7 w-96 sm:gap-4 sm:w-80">

@@ -1,5 +1,5 @@
-import { ChoosePlan } from "../components/Pages.modules/Pricing.moduls/ChoosePlan";
-import { Questions } from "../components/Pages.modules/Pricing.moduls/Questions.module";
+import { ChoosePlan } from "../components/pagesModules/pricingModuls/choosePlan";
+import { Questions } from "../components/pagesModules/pricingModuls/questionsModule";
 import { PreFooter } from "../components/Pre-Footer";
 
 export default function Pricing(){

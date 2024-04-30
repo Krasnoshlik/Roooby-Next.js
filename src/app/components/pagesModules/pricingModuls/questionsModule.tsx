@@ -21,8 +21,8 @@ export const Questions = () => {
 
   return (
     <div className=" bg-white">
-      <div className=" max-w-projContainer m-auto pt-28 pb-44 flex flex-col lg:mx-5 sm:mx-3">
-        <h2 className=" font-bold text-6xl leading-12">
+      <div className=" max-w-projContainer m-auto pt-28 pb-44 flex flex-col sm:pt-10 sm:pb-10 lg:mx-5 sm:mx-3">
+        <h2 className=" font-bold text-6xl leading-12 sm:text-2xl">
           Frequently asked <br /> questions
         </h2>
         <div className=" flex flex-col pt-10 w-10/12 self-end sm:w-full">
@@ -34,11 +34,11 @@ export const Questions = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-              <h2 className=" text-3xl font-medium leading-10"> How Does Roooby CRM Compare To The Competition? </h2>
+              <h2 className=" text-3xl font-medium leading-10 sm:text-xl"> How Does Roooby CRM Compare To The Competition? </h2>
               </AccordionSummary>
               <AccordionDetails>
                 <div className=" py-4 text-lg">
-                  <p>
+                  <p className=" sm:text-sm">
                     Rooby CRM offers the most affordable, comprehensive platform
                     to manage the entire customer journey, from generating
                     leads, to closing deals and supporting your customers. With
@@ -61,11 +61,11 @@ export const Questions = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-              <h2 className=" text-3xl font-medium leading-10">Can I Change Plans Or Cancel My Subscription At Any Time?</h2>
+              <h2 className=" text-3xl font-medium leading-10 sm:text-xl">Can I Change Plans Or Cancel My Subscription At Any Time?</h2>
               </AccordionSummary>
               <AccordionDetails>
                 <div className=" py-4 text-lg">
-                  <p>
+                  <p className=" sm:text-sm">
                     Rooby CRM offers the most affordable, comprehensive platform
                     to manage the entire customer journey, from generating
                     leads, to closing deals and supporting your customers. With
@@ -88,11 +88,11 @@ export const Questions = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-              <h2 className=" text-3xl font-medium leading-10"> How Secure Is My Data With Roooby CRM?</h2>
+              <h2 className=" text-3xl font-medium leading-10 sm:text-xl"> How Secure Is My Data With Roooby CRM?</h2>
               </AccordionSummary>
               <AccordionDetails>
                 <div className=" py-4 text-lg">
-                  <p>
+                  <p className=" sm:text-sm">
                     Rooby CRM offers the most affordable, comprehensive platform
                     to manage the entire customer journey, from generating
                     leads, to closing deals and supporting your customers. With
@@ -115,11 +115,11 @@ export const Questions = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-              <h2 className=" text-3xl font-medium leading-10"> What Is The Uptime Guarantee?</h2>
+              <h2 className=" text-3xl font-medium leading-10 sm:text-xl"> What Is The Uptime Guarantee?</h2>
               </AccordionSummary>
               <AccordionDetails>
                 <div className=" py-4 text-lg">
-                  <p>
+                  <p className=" sm:text-sm">
                     Rooby CRM offers the most affordable, comprehensive platform
                     to manage the entire customer journey, from generating
                     leads, to closing deals and supporting your customers. With
@@ -142,11 +142,11 @@ export const Questions = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-              <h2 className=" text-3xl font-medium leading-10">How Can I Add More Emails To My Account?</h2>
+              <h2 className=" text-3xl font-medium leading-10 sm:text-xl">How Can I Add More Emails To My Account?</h2>
               </AccordionSummary>
               <AccordionDetails>
                 <div className=" py-4 text-lg">
-                  <p>
+                  <p className=" sm:text-sm">
                     Rooby CRM offers the most affordable, comprehensive platform
                     to manage the entire customer journey, from generating
                     leads, to closing deals and supporting your customers. With

@@ -6,7 +6,7 @@ import Facebook from "../images/New/Facebook.svg";
 import Twitter from "../images/New/Twitter.svg";
 import In from "../images/New/Linkedin.svg";
 import Chain from "../images/New/ic_insert_link.svg";
-import { News } from "../database";
+import { News } from "../../../data/database";
 import Link from "next/link";
 
 interface searchParamsType {

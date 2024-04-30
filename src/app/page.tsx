@@ -1,9 +1,9 @@
-import { Main } from "./components/Pages.modules/MainPage.moduls/Main.module";
-import { PurpleSection } from "./components/Pages.modules/MainPage.moduls/PurpleSection.module";
-import { SMSsections } from "./components/Pages.modules/MainPage.moduls/SMS.sections.module";
-import { Integrations } from "./components/Pages.modules/MainPage.moduls/Integrations.module";
-import { WhatsNew } from "./components/Pages.modules/MainPage.moduls/WhatsNew.module";
-import { OurCustomers } from "./components/Pages.modules/MainPage.moduls/OurCustomers.module";
+import { Main } from "./components/pagesModules/mainPageModuls/mainModule";
+import { PurpleSection } from "./components/pagesModules/mainPageModuls/purpleSectionModule";
+import { SMSsections } from "./components/pagesModules/mainPageModuls/smsSectionsModule";
+import { Integrations } from "./components/pagesModules/mainPageModuls/integrationsModule";
+import { WhatsNew } from "./components/pagesModules/mainPageModuls/whatsNewModule";
+import { OurCustomers } from "./components/pagesModules/mainPageModuls/ourCustomersModule";
 import { PreFooter } from "./components/Pre-Footer";
 
 export default function Home(){
