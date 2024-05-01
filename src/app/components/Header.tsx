@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Logo from "../images/Roooby.svg";
 import { WhiteButton } from "./ui/WhiteButton";
@@ -7,70 +7,78 @@ import { PurpleButton } from "./ui/PurpleButton";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
+import {
+  MenuItem,
+  MenuButton,
+  ControlledMenu,
+  useClick,
+} from "@szhsin/react-menu";
+
 export const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [menu, setMenu] = useState(false);
+  const ref = useRef(null);
+  const [isOpen, setOpen] = useState(false);
+  const anchorProps = useClick(isOpen, setOpen);
 
   return (
     <div className=" bg-white sticky top-0 z-50">
-    <div className=" max-w-projContainer m-auto py-4 flex justify-between items-center lg:mx-5 sm:mx-3">
-      <div className=" flex gap-24">
-        <Image
-          src={Logo}
-          alt="Logo"
-          className=" hover:cursor-pointer"
-          onClick={() => router.push("/")}
-        />
-        <div className=" flex gap-9 text-sm font-medium lg:gap-5 sm:hidden">
-          <div>
-            <a href="/">Product</a>
-            {pathname === "/" && (
-              <span className=" h-full border-b-2 border-black block -mt-5"></span>
-            )}
+      <div className=" max-w-projContainer m-auto py-4 flex justify-between items-center lg:mx-5 sm:mx-3">
+        <div className=" flex gap-24">
+          <Image
+            src={Logo}
+            alt="Logo"
+            className=" hover:cursor-pointer"
+            onClick={() => router.push("/")}
+          />
+          <div className=" flex gap-9 text-sm font-medium lg:gap-5 sm:hidden">
+            <div>
+              <a href="/">Product</a>
+              {pathname === "/" && (
+                <span className=" h-full border-b-2 border-black block -mt-5"></span>
+              )}
+            </div>
+            <div>
+              <a href="/pricing">Pricing</a>
+              {pathname === "/pricing" && (
+                <span className=" h-full border-b-2 border-black block -mt-5"></span>
+              )}
+            </div>
+            <div>
+              <a href="#">Company</a>
+              {pathname === "#" && (
+                <span className=" h-full border-b-2 border-black block -mt-5"></span>
+              )}
+            </div>
+            <div>
+              <a href="/blog">Blog</a>
+              {pathname === "/blog" && (
+                <span className=" h-full border-b-2 border-black block -mt-5"></span>
+              )}
+            </div>
+            <div>
+              <a href="/contact">Contact</a>
+              {pathname === "/contact" && (
+                <span className=" h-full border-b-2 border-black block -mt-5"></span>
+              )}
+            </div>
           </div>
-          <div>
-            <a href="/pricing">Pricing</a>
-            {pathname === "/pricing" && (
-              <span className=" h-full border-b-2 border-black block -mt-5"></span>
-            )}
-          </div>
-          <div>
-            <a href="#">Company</a>
-            {pathname === "#" && (
-              <span className=" h-full border-b-2 border-black block -mt-5"></span>
-            )}
-          </div>
-          <div>
-            <a href="/blog">Blog</a>
-            {pathname === "/blog" && (
-              <span className=" h-full border-b-2 border-black block -mt-5"></span>
-            )}
-          </div>
-          <div>
-            <a href="/contact">Contact</a>
-            {pathname === "/contact" && (
-              <span className=" h-full border-b-2 border-black block -mt-5"></span>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div className=" flex gap-5 sm:hidden">
-        <div className=" w-20">
-          <WhiteButton textInButton={"Log in"} />
         </div>
 
-        <div className=" w-28">
-          <PurpleButton textInButton={"Try for Free"} />
+        <div className=" flex gap-5 sm:hidden">
+          <div className=" w-20">
+            <WhiteButton textInButton={"Log in"} />
+          </div>
+
+          <div className=" w-28">
+            <PurpleButton textInButton={"Try for Free"} />
+          </div>
         </div>
-      </div>
-      <div className=" flex lg:hidden xl:hidden">
+
         <svg
-          onClick={() => {
-            setMenu(true);
-          }}
-          className=" flex md:block md:self-center mr-4"
+          ref={ref}
+          {...anchorProps}
+          className=" flex md:block md:self-center mr-2 lg:hidden xl:hidden"
           width="27"
           height="23"
           viewBox="0 0 27 23"
@@ -82,39 +90,60 @@ export const Header = () => {
             fill="#323232"
           />
         </svg>
-        {menu && (
-          <div className=" absolute top-0 right-0 flex flex-col bg-white p-10 h-svh z-20 gap-8 lg:hidden xl:hidden">
-              <svg
-                height="20px"
-                id="Layer_1"
-                version="1.1"
-                viewBox="0 0 512 512"
-                width="20px"
-                className=" self-end"
-                onClick={() => {
-                    setMenu(false);
-                  }}
-              >
-                <path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z" />
-              </svg>
-            <a href="/">Product</a>
-            <a href="/pricing">Pricing</a>
-            <a href="#">Company</a>
-            <a href="/blog">Blog</a>
-            <a href="/contact">Contact</a>
-            <div className=" flex gap-5">
-        <div className=" w-20">
-          <WhiteButton textInButton={"Log in"} />
-        </div>
 
-        <div className=" w-28">
-          <PurpleButton textInButton={"Try for Free"} />
-        </div>
-      </div>
+        <ControlledMenu
+          state={isOpen ? "open" : "closed"}
+          anchorRef={ref}
+          onClose={() => setOpen(false)}
+        >
+          <div className=" bg-white p-20 fixed top-0 right-0 w-360 h-full flex flex-col gap-10">
+            <MenuButton onClick={() => setOpen(false)} className="self-end">
+              <svg
+                fill="#000000"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20px"
+                height="20px"
+                viewBox="0 0 41.756 41.756"
+              >
+                <g>
+                  <path
+                    d="M27.948,20.878L40.291,8.536c1.953-1.953,1.953-5.119,0-7.071c-1.951-1.952-5.119-1.952-7.07,0L20.878,13.809L8.535,1.465
+		c-1.951-1.952-5.119-1.952-7.07,0c-1.953,1.953-1.953,5.119,0,7.071l12.342,12.342L1.465,33.22c-1.953,1.953-1.953,5.119,0,7.071
+		C2.44,41.268,3.721,41.755,5,41.755c1.278,0,2.56-0.487,3.535-1.464l12.343-12.342l12.343,12.343
+		c0.976,0.977,2.256,1.464,3.535,1.464s2.56-0.487,3.535-1.464c1.953-1.953,1.953-5.119,0-7.071L27.948,20.878z"
+                  />
+                </g>
+              </svg>
+            </MenuButton>
+            <MenuItem>
+              <a href="/">Product</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="/pricing">Pricing</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="#">Company</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="/blog">Blog</a>
+            </MenuItem>
+            <MenuItem>
+              <a href="/contact">Contact</a>
+            </MenuItem>
+            <MenuItem className=" flex gap-6">
+            <div className=" w-20">
+            <WhiteButton textInButton={"Log in"} />
           </div>
-        )}
+
+          <div className=" w-28">
+            <PurpleButton textInButton={"Try for Free"} />
+          </div>
+            </MenuItem>
+          </div>
+        </ControlledMenu>
       </div>
-    </div>
     </div>
   );
 };
