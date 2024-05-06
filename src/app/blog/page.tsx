@@ -1,5 +1,5 @@
-import { PreFooter } from "../components/Pre-Footer";
-import { MainBlog } from "../components/pagesModules/blogModuls/mainBlogModule";
+import { PreFooter } from "../components/ui/Pre-Footer";
+import { MainBlog } from "../components/layout/blogModuls/mainBlogModule";
 
 export default function Blog(){
     return (

@@ -10,15 +10,19 @@ import { News } from "../../../data/database";
 import { MidNewsCard } from "../components/ui/midNewsCard";
 
 interface searchParamsType {
-  id: number,
-  type: string,
-  date: string,
-  img?: string,
-  autor: string,
-  title: string
+  id: number;
+  type: string;
+  date: string;
+  img?: string;
+  autor: string;
+  title: string;
 }
 
-export default function New({ searchParams }: {searchParams: searchParamsType}) {
+export default function New({
+  searchParams,
+}: {
+  searchParams: searchParamsType;
+}) {
   const news = News;
   return (
     <div>
@@ -53,7 +57,9 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
               Bite-Sized Videos. The Psychology of Short-Form Content: Why We
               Love Bite-Sized Videos
             </p>
-            <h2 className=" font-bold text-5xl sm:text-2xl">What is a sales funnel?</h2>
+            <h2 className=" font-bold text-5xl sm:text-2xl">
+              What is a sales funnel?
+            </h2>
             <p className=" text-lg leading-7 sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -91,7 +97,9 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
           </div>
           <Image src={ImageNew} alt="ImageNew" />
           <div className=" flex flex-col gap-5 my-8">
-            <h2 className=" font-bold text-5xl sm:text-2xl">What is a sales funnel?</h2>
+            <h2 className=" font-bold text-5xl sm:text-2xl">
+              What is a sales funnel?
+            </h2>
             <p className=" text-lg leading-7 sm:text-base">
               In order to fully answer the question “What is a sales funnel?”,
               we need to tackle the different steps of the funnel. While
@@ -149,20 +157,14 @@ export default function New({ searchParams }: {searchParams: searchParamsType}) 
       </div>
 
       <div className=" max-w-projContainer m-auto py-28 lg:mx-5 sm:mx-3 sm:py-10">
-        <h1 className=" font-bold text-6xl sm:text-2xl">More from this topic</h1>
+        <h1 className=" font-bold text-6xl sm:text-2xl">
+          More from this topic
+        </h1>
 
-        <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:mt-10">
-          {/* New card start  */}
-          <MidNewsCard item={news[9]}/>
-          {/* New card end  */}
-
-          {/* New card start  */}
-          <MidNewsCard item={news[10]}/>
-          {/* New card end  */}
-
-          {/* New card start  */}
-          <MidNewsCard item={news[11]}/>
-          {/* New card end  */}
+        <div className="mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:mt-10">
+          {news.slice(9, 12).map((item, index) => (
+            <MidNewsCard key={index} item={item} />
+          ))}
         </div>
       </div>
     </div>

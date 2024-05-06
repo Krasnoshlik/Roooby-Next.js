@@ -1,6 +1,6 @@
-import { ChoosePlan } from "../components/pagesModules/pricingModuls/choosePlan";
-import { Questions } from "../components/pagesModules/pricingModuls/questionsModule";
-import { PreFooter } from "../components/Pre-Footer";
+import { ChoosePlan } from "../components/layout/pricingModuls/choosePlan";
+import { Questions } from "../components/layout/pricingModuls/questionsModule";
+import { PreFooter } from "../components/ui/Pre-Footer";
 
 export default function Pricing(){
     return (

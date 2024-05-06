@@ -27,23 +27,21 @@ export const MainBlog = () => {
   const [filterOption, setFilterOption] = useState("All Articles");
 
   const currentNews = news.filter((item) => {
-    if (filterOption === "All Articles") {
-      return item;
-    }
-    if (filterOption === "Sales") {
-      return item.type === "SALES" ? item : null;
-    }
-    if (filterOption === "Marketing") {
-      return item.type === "MARKETING" ? item : null;
-    }
-    if (filterOption === "Service") {
-      return item.type === "SERVICE" ? item : null;
-    }
-    if (filterOption === "Product") {
-      return item.type === "PRODUCT" ? item : null;
-    }
-    if (filterOption === "News") {
-      return item.type === "NEWS" ? item : null;
+    switch (filterOption) {
+      case "All Articles":
+        return true;
+      case "Sales":
+        return item.type === "SALES";
+      case "Marketing":
+        return item.type === "MARKETING";
+      case "Service":
+        return item.type === "SERVICE";
+      case "Product":
+        return item.type === "PRODUCT";
+      case "News":
+        return item.type === "NEWS";
+      default:
+        return false;
     }
   });
 
@@ -58,7 +56,7 @@ export const MainBlog = () => {
           <span className=" text-gray-500"> from our experts </span>
         </h1>
 
-        <div >
+        <div>
           <Box>
             <AntTabs
               value={value}
@@ -126,42 +124,10 @@ export const MainBlog = () => {
               <img src={currentNews[0].img} alt="img" className=" w-555" />
             </div>
           )}
-          <div className=" mt-10 self-center flex flex-wrap gap-6 sm:justify-center sm:items-center sm:gap-y-10">
-            {/* New card start  */}
-            {currentNews[1] !== undefined && (
-              <MidNewsCard item={currentNews[1]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[2] !== undefined && (
-              <MidNewsCard item={currentNews[2]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[3] !== undefined && (
-              <MidNewsCard item={currentNews[3]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[4] !== undefined && (
-              <MidNewsCard item={currentNews[4]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[5] !== undefined && (
-              <MidNewsCard item={currentNews[5]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[6] !== undefined && (
-              <MidNewsCard item={currentNews[6]}/>
-            )}
-            {/* New card end  */}
+          <div className="mt-10 self-center flex flex-wrap gap-6 sm:justify-center sm:items-center sm:gap-y-10">
+            {currentNews.slice(1, 7).map((item, index) => (
+              <MidNewsCard key={index} item={item} />
+            ))}
           </div>
           {currentNews[7] !== undefined && (
             <div className=" flex gap-8 sm:flex-col mt-8">
@@ -238,24 +204,10 @@ export const MainBlog = () => {
             </div>
           )}
 
-          <div className=" mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1">
-            {/* New card start  */}
-            {currentNews[8] !== undefined && (
-              <MidNewsCard item={currentNews[8]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[9] !== undefined && (
-              <MidNewsCard item={currentNews[9]}/>
-            )}
-            {/* New card end  */}
-
-            {/* New card start  */}
-            {currentNews[10] !== undefined && (
-              <MidNewsCard item={currentNews[10]}/>
-            )}
-            {/* New card end  */}
+          <div className="mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1">
+            {currentNews.slice(8, 11).map((item, index) => (
+              <MidNewsCard key={index} item={item} />
+            ))}
           </div>
         </div>
       </div>
