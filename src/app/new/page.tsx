@@ -49,9 +49,7 @@ export default function New({
       ).then((res) => res.json()),
     ])
       .then(([postsData, photosData]) => {
-        // Ensure both arrays have the same length
         const minLength: number = Math.min(postsData.length, photosData.length);
-        // Merge the data based on the minimum length
         const mergedNews: MergedNewsType[] = [];
         for (let i = 0; i < minLength; i++) {
           mergedNews.push({
@@ -71,7 +69,7 @@ export default function New({
   }, []);
 
   useEffect(() => {
-    const selectedItem = allPosts.find((item) => item.id.toString() === id.toString()); // Updated comparison to match type
+    const selectedItem = allPosts.find((item) => item.id.toString() === id.toString());
     if (selectedItem) {
       setItem(selectedItem);
     }
