@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 
 interface SearchParamsType {
   url: string | undefined;
-  id: number;
+  id: string;
   type: string;
   date: string;
   autor: string;
@@ -58,10 +58,6 @@ export default function New({
             ...HalfNews[i],
             title: postsData[i]?.title,
             url: photosData[i]?.url,
-            type: "", // Adjust this according to your data structure
-            date: "", // Adjust this according to your data structure
-            autor: "", // Adjust this according to your data structure
-            id: "", // Adjust this according to your data structure
           });
         }
         
@@ -75,7 +71,7 @@ export default function New({
   }, []);
 
   useEffect(() => {
-    const selectedItem = allPosts.find((item) => item.id === id.toString()); // Updated comparison to match type
+    const selectedItem = allPosts.find((item) => item.id.toString() === id.toString()); // Updated comparison to match type
     if (selectedItem) {
       setItem(selectedItem);
     }

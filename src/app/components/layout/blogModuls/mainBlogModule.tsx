@@ -29,6 +29,7 @@ interface PostType {
   type: string;
   date: string;
   autor: string;
+  id: string;
 }
 
 export const MainBlog: React.FC = () => {
