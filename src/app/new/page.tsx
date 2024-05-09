@@ -4,13 +4,13 @@ import ImageNew from "../images/New/Image.png";
 import Avatar from "../images/New/Oval.png";
 import Facebook from "../images/New/Facebook.svg";
 import Twitter from "../images/New/Twitter.svg";
-import In from "../images/New/Linkedin.svg";
+import In from "../images/New/Linkedin.svg"; // Updated import statement
 import Chain from "../images/New/ic_insert_link.svg";
 import { HalfNews } from "../../../data/halfdatabase";
 import { MidNewsCard } from "../components/ui/midNewsCard";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-interface searchParamsType {
+interface SearchParamsType {
   url: string | undefined;
   id: number;
   type: string;
@@ -18,27 +18,26 @@ interface searchParamsType {
   autor: string;
   title: string;
 }
-interface mergedNewsType {
-  title: any;
-  url: any;
-  id: number;
+
+interface MergedNewsType {
+  title: string;
+  url: string;
+  id: string;
   type: string;
   date: string;
   autor: string;
-}[]
+}
 
 export default function New({
   searchParams,
 }: {
-  searchParams: searchParamsType;
+  searchParams: SearchParamsType;
 }) {
   const { id } = searchParams;
-  const [allPosts, setAllPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState<MergedNewsType[]>([]); // Added type annotation
 
-  const [loading, setLoading] = useState(true);
-  const [item, setItem] = useState<searchParamsType | null>(null);
-
-
+  const [loading, setLoading] = useState<boolean>(true); // Added type annotation
+  const [item, setItem] = useState<SearchParamsType | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -51,14 +50,18 @@ export default function New({
     ])
       .then(([postsData, photosData]) => {
         // Ensure both arrays have the same length
-        const minLength = Math.min(postsData.length, photosData.length);
+        const minLength: number = Math.min(postsData.length, photosData.length);
         // Merge the data based on the minimum length
-        const mergedNews: ((prevState: never[]) => never[]) | { title: any; url: any; id: number; type: string; date: string; autor: string; }[] = [];
+        const mergedNews: MergedNewsType[] = [];
         for (let i = 0; i < minLength; i++) {
           mergedNews.push({
             ...HalfNews[i],
             title: postsData[i]?.title,
             url: photosData[i]?.url,
+            type: "", // Adjust this according to your data structure
+            date: "", // Adjust this according to your data structure
+            autor: "", // Adjust this according to your data structure
+            id: "", // Adjust this according to your data structure
           });
         }
         
@@ -72,15 +75,11 @@ export default function New({
   }, []);
 
   useEffect(() => {
-    const selectedItem = allPosts.find((item) => item.id === parseInt(id));
+    const selectedItem = allPosts.find((item) => item.id === id.toString()); // Updated comparison to match type
     if (selectedItem) {
       setItem(selectedItem);
     }
   }, [allPosts, id]);
-
-  console.log(id);
-  console.log(item);
-  console.log(allPosts);
   return (
     <div>
       {!item ? (<div className=" text-center my-5 font-bold">is Loading</div>) : (

@@ -23,18 +23,26 @@ const AntTab = styled(Tab)({
   },
 });
 
-export const MainBlog = () => {
-  const [value, setValue] = useState(0);
-  const [filterOption, setFilterOption] = useState("All Articles");
-  const [allPosts, setAllPosts] = useState([]);
+interface PostType {
+  title: string;
+  url: string;
+  type: string;
+  date: string;
+  autor: string;
+}
 
-  const [loading, setLoading] = useState(true);
+export const MainBlog: React.FC = () => {
+  const [value, setValue] = useState<number>(0);
+  const [filterOption, setFilterOption] = useState<string>("All Articles");
+  const [allPosts, setAllPosts] = useState<PostType[]>([]);
+
+  const [loading, setLoading] = useState<boolean>(true);
 
   // Pagination states
-  const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 11;
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const postsPerPage: number = 11;
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: number): void => {
     setValue(newValue);
     setCurrentPage(0);
   };
@@ -49,11 +57,8 @@ export const MainBlog = () => {
       ).then((res) => res.json()),
     ])
       .then(([postsData, photosData]) => {
-        // Ensure both arrays have the same length
-        const minLength = Math.min(postsData.length, photosData.length);
-
-        // Merge the data based on the minimum length
-        const mergedNews = [];
+        const minLength: number = Math.min(postsData.length, photosData.length);
+        const mergedNews: PostType[] = [];
         for (let i = 0; i < minLength; i++) {
           mergedNews.push({
             ...HalfNews[i],
@@ -70,20 +75,20 @@ export const MainBlog = () => {
   }, []);
 
   // Change page
-  function scrollToTop() {
-    const c = document.documentElement.scrollTop || document.body.scrollTop;
+  function scrollToTop(): void {
+    const c: number = document.documentElement.scrollTop || document.body.scrollTop;
     if (c > 0) {
       window.requestAnimationFrame(scrollToTop);
       window.scrollTo(0, c - c / 8);
     }
   }
-  const handlePageChange = ({ selected }) => {
+  const handlePageChange = ({ selected }: { selected: number }): void => {
     setCurrentPage(selected);
     scrollToTop();
   };
 
   // Get filtered and paginated posts
-  const filteredPosts = allPosts.filter((item) => {
+  const filteredPosts: PostType[] = allPosts.filter((item) => {
     switch (filterOption) {
       case "All Articles":
         return true;
@@ -92,9 +97,9 @@ export const MainBlog = () => {
     }
   });
 
-  const indexOfLastPost = (currentPage + 1) * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost: number = (currentPage + 1) * postsPerPage;
+  const indexOfFirstPost: number = indexOfLastPost - postsPerPage;
+  const currentPosts: PostType[] = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   return (
     <>
@@ -167,7 +172,7 @@ export const MainBlog = () => {
                 <img src={currentPosts[7].url} alt="Image1" />
                 <Link
                   className=" font-bold text-3xl leading-10 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentPosts[7] }}
+                  href={{ pathname: "/new", query: {...currentPosts[7]} }}
                 >
                   {currentPosts[7].title}
                 </Link>

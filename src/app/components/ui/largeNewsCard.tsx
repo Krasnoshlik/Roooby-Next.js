@@ -5,7 +5,6 @@ interface NewsItem {
     url: string | undefined;
     id: string;
     type: string;
-    img: string;
     title: string;
     date: string;
     autor: string;
