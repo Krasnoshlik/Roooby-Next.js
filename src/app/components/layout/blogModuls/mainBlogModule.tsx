@@ -1,12 +1,14 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-import { News } from "../../../../../data/database";
+import ReactPaginate from "react-paginate";
+import { HalfNews } from "../../../../../data/halfdatabase";
 import Link from "next/link";
 import { MidNewsCard } from "../../ui/midNewsCard";
+import { LargeNewsCard } from "../../ui/largeNewsCard";
 
 const AntTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
@@ -22,32 +24,78 @@ const AntTab = styled(Tab)({
 });
 
 export const MainBlog = () => {
-  const news = News;
   const [value, setValue] = useState(0);
   const [filterOption, setFilterOption] = useState("All Articles");
+  const [allPosts, setAllPosts] = useState([]);
 
-  const currentNews = news.filter((item) => {
-    switch (filterOption) {
-      case "All Articles":
-        return true;
-      case "Sales":
-        return item.type === "SALES";
-      case "Marketing":
-        return item.type === "MARKETING";
-      case "Service":
-        return item.type === "SERVICE";
-      case "Product":
-        return item.type === "PRODUCT";
-      case "News":
-        return item.type === "NEWS";
-      default:
-        return false;
-    }
-  });
+  const [loading, setLoading] = useState(true);
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(0);
+  const postsPerPage = 11;
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    setCurrentPage(0);
   };
+
+  useEffect(() => {
+    Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/posts?_limit=50").then(
+        (res) => res.json()
+      ),
+      fetch(
+        "https://jsonplaceholder.typicode.com/albums/1/photos?_limit=50"
+      ).then((res) => res.json()),
+    ])
+      .then(([postsData, photosData]) => {
+        // Ensure both arrays have the same length
+        const minLength = Math.min(postsData.length, photosData.length);
+
+        // Merge the data based on the minimum length
+        const mergedNews = [];
+        for (let i = 0; i < minLength; i++) {
+          mergedNews.push({
+            ...HalfNews[i],
+            title: postsData[i]?.title,
+            url: photosData[i]?.url,
+          });
+        }
+        setAllPosts(mergedNews);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  // Change page
+  function scrollToTop() {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  }
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+    scrollToTop();
+  };
+
+  // Get filtered and paginated posts
+  const filteredPosts = allPosts.filter((item) => {
+    switch (filterOption) {
+      case "All Articles":
+        return true;
+      default:
+        return item.type === filterOption;
+    }
+  });
+
+  const indexOfLastPost = (currentPage + 1) * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <>
       <div className=" max-w-projContainer m-auto lg:mx-5 sm:mx-5">
@@ -73,27 +121,27 @@ export const MainBlog = () => {
               <AntTab
                 label="Sales"
                 className=" font-medium text-lg sm:text-base"
-                onClick={() => setFilterOption("Sales")}
+                onClick={() => setFilterOption("SALES")}
               />
               <AntTab
                 label="Marketing"
                 className=" font-medium text-lg sm:text-base"
-                onClick={() => setFilterOption("Marketing")}
+                onClick={() => setFilterOption("MARKETING")}
               />
               <AntTab
                 label="Service"
                 className=" font-medium text-lg sm:text-base"
-                onClick={() => setFilterOption("Service")}
+                onClick={() => setFilterOption("SERVICE")}
               />
               <AntTab
                 label="Product"
                 className=" font-medium text-lg sm:text-base"
-                onClick={() => setFilterOption("Product")}
+                onClick={() => setFilterOption("PRODUCT")}
               />
               <AntTab
                 label="News"
                 className=" font-medium text-lg sm:text-base"
-                onClick={() => setFilterOption("News")}
+                onClick={() => setFilterOption("NEWS")}
               />
             </AntTabs>
           </Box>
@@ -102,50 +150,32 @@ export const MainBlog = () => {
 
       <div className=" bg-white">
         <div className=" max-w-projContainer m-auto pt-28 pb-10 lg:mx-5 sm:mx-5 lg:flex lg:flex-col sm:pt-10 sm:pb-10">
-          {currentNews[0] !== undefined && (
-            <div className=" flex gap-5 lg:flex-col sm:flex-col lg:self-center sm:self-center sm:justify-center sm:items-center">
-              <div className=" flex flex-col justify-between py-4 border-y-2 max-w-555">
-                <div>
-                  <p className=" text-sm text-gray-400 font-bold">
-                    {currentNews[0].type}
-                  </p>
-                  <Link
-                    className=" font-bold text-4xl leading-11 hover:underline hover:cursor-pointer sm:text-xl"
-                    href={{ pathname: "/new", query: currentNews[0] }}
-                  >
-                    {currentNews[0].title}
-                  </Link>
-                </div>
-                <p className=" font-medium">
-                  {currentNews[0].date}
-                  <span className=" text-gray-500">{currentNews[0].autor}</span>
-                </p>
-              </div>
-              <img src={currentNews[0].img} alt="img" className=" w-555" />
-            </div>
-          )}
+          {loading === true && <div className=" relative top-1/2 left-1/2 font-bold text-xl">is Loading</div>}
+          {currentPosts.length > 0 && <LargeNewsCard item={currentPosts[0]} />}
           <div className="mt-10 self-center flex flex-wrap gap-6 sm:justify-center sm:items-center sm:gap-y-10">
-            {currentNews.slice(1, 7).map((item, index) => (
+            {currentPosts.slice(1, 7).map((item, index) => (
               <MidNewsCard key={index} item={item} />
             ))}
           </div>
-          {currentNews[7] !== undefined && (
+          {currentPosts.length > 7 && (
             <div className=" flex gap-8 sm:flex-col mt-8">
               <div className=" flex flex-col gap-6 max-w-555 sm:place-self-center">
                 <p className=" text-sm text-gray-400 font-bold -mb-2">
-                  {currentNews[7].type}
+                  {currentPosts[7].type}
                 </p>
                 <span className=" border w-full"></span>
-                <img src={currentNews[7].img} alt="Image1" />
+                <img src={currentPosts[7].url} alt="Image1" />
                 <Link
                   className=" font-bold text-3xl leading-10 hover:cursor-pointer hover:underline sm:text-xl"
-                  href={{ pathname: "/new", query: currentNews[7] }}
+                  href={{ pathname: "/new", query: currentPosts[7] }}
                 >
-                  {currentNews[7].title}
+                  {currentPosts[7].title}
                 </Link>
                 <p className=" font-medium">
-                  {currentNews[7].date}
-                  <span className=" text-gray-500">{currentNews[7].autor}</span>
+                  {currentPosts[7].date}
+                  <span className=" text-gray-500">
+                    {currentPosts[7].autor}
+                  </span>
                 </p>
               </div>
               <div className=" pt-9 flex flex-col gap-12 sm:place-self-center">
@@ -203,13 +233,29 @@ export const MainBlog = () => {
               </div>
             </div>
           )}
-
           <div className="mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1">
-            {currentNews.slice(8, 11).map((item, index) => (
+            {currentPosts.slice(8, 11).map((item, index) => (
               <MidNewsCard key={index} item={item} />
             ))}
           </div>
         </div>
+      </div>
+      {/* Pagination */}
+      <div className="mt-10 flex justify-center">
+        <ReactPaginate
+          previousLabel={"← Previous"}
+          nextLabel={"Next →"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={Math.ceil(filteredPosts.length / postsPerPage)}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageChange}
+          containerClassName={"pagination"}
+          activeClassName=" bg-white px-2 rounded-xl border"
+          className=" flex gap-3 mb-5"
+          pageClassName="px-2"
+        />
       </div>
     </>
   );

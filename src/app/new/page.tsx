@@ -6,42 +6,101 @@ import Facebook from "../images/New/Facebook.svg";
 import Twitter from "../images/New/Twitter.svg";
 import In from "../images/New/Linkedin.svg";
 import Chain from "../images/New/ic_insert_link.svg";
-import { News } from "../../../data/database";
+import { HalfNews } from "../../../data/halfdatabase";
 import { MidNewsCard } from "../components/ui/midNewsCard";
+import { useState,useEffect } from "react";
 
 interface searchParamsType {
+  url: string | undefined;
   id: number;
   type: string;
   date: string;
-  img?: string;
   autor: string;
   title: string;
 }
+interface mergedNewsType {
+  title: any;
+  url: any;
+  id: number;
+  type: string;
+  date: string;
+  autor: string;
+}[]
 
 export default function New({
   searchParams,
 }: {
   searchParams: searchParamsType;
 }) {
-  const news = News;
+  const { id } = searchParams;
+  const [allPosts, setAllPosts] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+  const [item, setItem] = useState<searchParamsType | null>(null);
+
+
+
+  useEffect(() => {
+    Promise.all([
+      fetch("https://jsonplaceholder.typicode.com/posts?_limit=50").then(
+        (res) => res.json()
+      ),
+      fetch(
+        "https://jsonplaceholder.typicode.com/albums/1/photos?_limit=50"
+      ).then((res) => res.json()),
+    ])
+      .then(([postsData, photosData]) => {
+        // Ensure both arrays have the same length
+        const minLength = Math.min(postsData.length, photosData.length);
+        // Merge the data based on the minimum length
+        const mergedNews: ((prevState: never[]) => never[]) | { title: any; url: any; id: number; type: string; date: string; autor: string; }[] = [];
+        for (let i = 0; i < minLength; i++) {
+          mergedNews.push({
+            ...HalfNews[i],
+            title: postsData[i]?.title,
+            url: photosData[i]?.url,
+          });
+        }
+        
+        setAllPosts(mergedNews);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    const selectedItem = allPosts.find((item) => item.id === parseInt(id));
+    if (selectedItem) {
+      setItem(selectedItem);
+    }
+  }, [allPosts, id]);
+
+  console.log(id);
+  console.log(item);
+  console.log(allPosts);
   return (
     <div>
+      {!item ? (<div className=" text-center my-5 font-bold">is Loading</div>) : (
+        <div>
       <div className=" flex flex-col gap-6 max-w-945 m-auto lg:mx-5 sm:mx-5 mt-5">
         <div className=" max-w-555 m-auto">
           <p className=" text-sm text-gray-400 font-bold -mb-2">
-            {searchParams.type}
+            {item.type}
           </p>
           <span className=" border w-full block my-4"></span>
           <h3 className=" font-bold text-3xl leading-10 sm:text-2xl">
-            {searchParams.title}
+            {item.title}
           </h3>
           <p className=" font-medium mt-4">
-            {searchParams.date}
-            <span className=" text-gray-500">{searchParams.autor}</span>
+            {item.date}
+            <span className=" text-gray-500">{item.autor}</span>
           </p>
         </div>
         <img
-          src={searchParams.img}
+          src={item.url}
           alt="Image1"
           className=" w-full"
           width={555}
@@ -146,15 +205,17 @@ export default function New({
                 </div>
               </div>
               <div className=" flex gap-4">
-                <Image src={Facebook} alt="Facebook" />
-                <Image src={Twitter} alt="Twitter" className=" mt-2" />
-                <Image src={In} alt="In" />
-                <Image src={Chain} alt="Chain" />
+                <Image src={Facebook} alt="Facebook" className="hover:cursor-pointer"/>
+                <Image src={Twitter} alt="Twitter" className=" mt-2 hover:cursor-pointer" />
+                <Image src={In} alt="In" className="hover:cursor-pointer"/>
+                <Image src={Chain} alt="Chain" className="hover:cursor-pointer"/>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </div>
+       )}
 
       <div className=" max-w-projContainer m-auto py-28 lg:mx-5 sm:mx-3 sm:py-10">
         <h1 className=" font-bold text-6xl sm:text-2xl">
@@ -162,8 +223,8 @@ export default function New({
         </h1>
 
         <div className="mt-20 grid grid-cols-3 lg:grid-cols-2 lg:self-center lg:gap-4 sm:grid-cols-1 sm:justify-center sm:items-center sm:mt-10">
-          {news.slice(9, 12).map((item, index) => (
-            <MidNewsCard key={index} item={item} />
+          {allPosts.slice(9, 12).map((post, index) => (
+            <MidNewsCard key={index} item={post} />
           ))}
         </div>
       </div>
