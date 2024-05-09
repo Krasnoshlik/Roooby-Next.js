@@ -4,7 +4,7 @@ import ImageNew from "../images/New/Image.png";
 import Avatar from "../images/New/Oval.png";
 import Facebook from "../images/New/Facebook.svg";
 import Twitter from "../images/New/Twitter.svg";
-import In from "../images/New/Linkedin.svg"; // Updated import statement
+import In from "../images/New/Linkedin.svg";
 import Chain from "../images/New/ic_insert_link.svg";
 import { HalfNews } from "../../../data/halfdatabase";
 import { MidNewsCard } from "../components/ui/midNewsCard";
@@ -34,9 +34,9 @@ export default function New({
   searchParams: SearchParamsType;
 }) {
   const { id } = searchParams;
-  const [allPosts, setAllPosts] = useState<MergedNewsType[]>([]); // Added type annotation
+  const [allPosts, setAllPosts] = useState<MergedNewsType[]>([]);
 
-  const [loading, setLoading] = useState<boolean>(true); // Added type annotation
+  const [loading, setLoading] = useState<boolean>(true);
   const [item, setItem] = useState<SearchParamsType | null>(null);
 
   useEffect(() => {
