@@ -14,7 +14,10 @@ import {
   useClick,
 } from "@szhsin/react-menu";
 
+import { SignInButton, SignedIn, SignedOut, UserButton,useUser } from "@clerk/nextjs";
+
 export const Header = () => {
+  const { isSignedIn, user } = useUser();
   const router = useRouter();
   const pathname = usePathname();
   const ref = useRef(null);
@@ -65,14 +68,22 @@ export const Header = () => {
           </div>
         </div>
 
+
         <div className=" flex gap-5 sm:hidden">
-          <div className=" w-20">
-            <WhiteButton textInButton={"Log in"} />
+          <div className="flex gap-2 items-center">
+            {isSignedIn && <p className=" text-sm font-medium text-dark-purple">Welcome, {user.fullName}!</p>}
+            <SignedOut>
+          <SignInButton className=" bg-white border border-gray-100 w-full py-2 text-dark-purple font-bold text-center text-sm rounded hover:bg-dark-purple hover:text-white transition ease-in-out duration-700"/>
+        </SignedOut>
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>
           </div>
 
+          {isSignedIn ? null :
           <div className=" w-28">
             <PurpleButton textInButton={"Try for Free"} />
-          </div>
+          </div>}
         </div>
 
         <svg
@@ -133,13 +144,13 @@ export const Header = () => {
               <a href="/contact">Contact</a>
             </MenuItem>
             <MenuItem className=" flex gap-6">
-            <div className=" w-20">
-            <WhiteButton textInButton={"Log in"} />
-          </div>
+              <div className=" w-20">
+                <WhiteButton textInButton={"Log in"} />
+              </div>
 
-          <div className=" w-28">
-            <PurpleButton textInButton={"Try for Free"} />
-          </div>
+              <div className=" w-28">
+                <PurpleButton textInButton={"Try for Free"} />
+              </div>
             </MenuItem>
           </div>
         </ControlledMenu>
