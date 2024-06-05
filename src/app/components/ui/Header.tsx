@@ -72,13 +72,11 @@ export const Header = () => {
         <div className=" flex gap-5 sm:hidden">
           <div className="flex gap-2 items-center">
             {isSignedIn && <p className=" text-sm font-medium text-dark-purple">Welcome, {user.fullName}!</p>}
-		  <div className=" bg-white border border-gray-100 w-full py-2 text-dark-purple font-bold text-center text-sm rounded hover:bg-dark-purple hover:text-white transition ease-in-out duration-700 px-1">
             <SignedOut>
-              
+        <div className=" bg-white border border-gray-100 w-full py-2 text-dark-purple font-bold text-center text-sm rounded hover:bg-dark-purple hover:text-white transition ease-in-out duration-700 px-1">
           <SignInButton/>
-          
-        </SignedOut>
-			  </div>
+          </div>
+        </SignedOut>  
         <SignedIn>
           <UserButton/>
         </SignedIn>
